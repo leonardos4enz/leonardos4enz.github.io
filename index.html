@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Leonardo Sáenz</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/lib/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/fontawesome-free-6.7.1-web/fontawesome-free-6.7.1-web/css/all.min.css">
+    <link rel="stylesheet" href="/lib/aos-master/aos-master/dist/aos.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/index.css?v=1">
+
+    <!-- JavaScript -->
+    <script defer src="/index.js?v=1"></script>
+</head>
+<body class="bg-light text-dark">
+    <!-- Barra de Navegación -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top" >
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Leonardo Sáenz</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item me-3">
+                        <a class="nav-link active" aria-current="page" href="#skills" title="Habilidades">Habilidades</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#projects" title="Proyectos">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact-info" title="Contacto">Contacto</a>
+                    </li>
+                </ul>
+                <!-- Botón para cambiar tema -->
+                <button id="theme-toggle" class="btn text-secondary" title="Cambiar de tema">
+                    <i class="fas fa-sun" id="theme-icon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container pt-5">
+        <!-- Contenido principal -->
+        <section id="about" class="mt-5 mb-5 text-center">
+            <!-- Contenedor de dos columnas -->
+            <div class="row mt-5">
+                <!-- Columna de la foto -->
+                <div class="col-md-4 d-flex justify-content-center align-items-center pb-5 " data-aos="fade-up">
+                    <img src="/assets/img/me.jpg" alt="Foto de Leonardo Sáenz" class="rounded-circle" style="max-width: 300px;">
+                </div>
+                <!-- Columna de información -->
+                <div class="col-md-8 d-flex justify-content-center align-items-center" data-aos="fade-up">
+                    <div>
+                        <h1>Leonardo Román Sáenz Flores<small class="display-5"> 23 años</small></h1>
+                        <p class="pt-2 pb-0 mb-1">Desarrollador Web Full Stack Jr.</p>
+                        
+                        <p class="fst-italic">2 años de experiencia laboral</p>
+                    </div>
+                </div>    
+            </div>
+        </section>
+
+        <hr>
+        <!-- Sección de Lenguajes, Metodologías, Herramientas, Control de Versiones e Infraestructura -->
+<section id="skills" class="text-center">
+
+    <h2 class="my-4">Habilidades de programación</h2>
+    <!-- Contenedor con 2 filas y 5 partes -->
+    <div class="row">
+
+        <!-- Fila 1 -->
+        <div class="col-6 my-4">
+            <h4>Lenguajes</h4>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">HTML</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">JavaScript</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">CSS</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">C#</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">SQL</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">MySQL</span>
+            </div>
+        </div>
+
+        <div class="col-6 my-4">
+            <h4>Tecnologías</h4>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">.NET</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">MVC</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">jQuery</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Bootstrap</span>
+            </div>
+        </div>
+
+        <!-- Fila 2 -->
+        <div class="col-6 my-4">
+            <h4>Metodologías</h4>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">SCRUM</span>
+            </div>
+        </div>
+
+        <div class="col-6 my-4">
+            <h4>Herramientas</h4>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Azure DevOps</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Draw.io</span>
+            </div>
+        </div>
+
+        <!-- Fila 3 -->
+        <div class="col-6 my-4">
+            <h4>Control de Versiones e Infraestructura</h4>
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Git</span>
+                <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">IIS</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+<hr>
+<section class="text-center mb-5">
+    <h2 class="my-5">Línea de aprendizaje</h2>
+    
+    <div class="row">
+        <div class="col">
+            <div class="timeline-steps aos-init aos-animate">
+                <div class="timeline-step">
+                    <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2003">
+                        <div class="inner-circle"></div>
+                        <p class="h6 mt-3 mb-1">Universidad</p>
+                        <p class="h6 text-muted mb-0 mb-lg-0">
+                            <div class="mb-1">
+                                Conocimiento básico de lenguajes
+                            </div>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">HTML</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Javascript</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">CSS</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">C#</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">SQL</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Git</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2004">
+                        <div class="inner-circle"></div>
+                        <p class="h6 mt-3 mb-1">Abril 2023</p>
+                        <p class="h6 text-muted mb-0 mb-lg-0">
+                            <div class="mb-1">
+                                Comencé mi experiencia laboral
+                            </div>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">jQuery</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">MVC</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">MySQL</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2005">
+                        <div class="inner-circle"></div>
+                        <p class="h6 mt-3 mb-1">Junio 2023</p>
+                        <p class="h6 text-muted mb-0 mb-lg-0">
+                            <div class="mb-1">
+                                Realicé mi primera página web empresarial
+                            </div>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Bootstrap</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Azure DevOps</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">.NET</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-step">
+                    <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2010">
+                        <div class="inner-circle"></div>
+                        <p class="h6 mt-3 mb-1">Diciembre 2023</p>
+                        <p class="h6 text-muted mb-0 mb-lg-0">
+                            <div class="mb-1">
+                                Aprendí el uso de la metodología
+                            </div>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">SCRUM</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-step mb-0">
+                    <div class="timeline-content" data-toggle="popover" data-trigger="hover" data-placement="top" title="" data-content="And here's some amazing content. It's very engaging. Right?" data-original-title="2020">
+                        <div class="inner-circle"></div>
+                        <p class="h6 mt-3 mb-1">Enero 2024</p>
+                        <p class="h6 text-muted mb-0 mb-lg-0">
+                            <div class="mb-1">
+                                Comienzo de nuevo proyecto ERP
+                            </div>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">IIS</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">SQL</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Draw.io</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<hr >
+
+        <!-- Sección de Proyectos -->
+        <section id="projects" class="text-center">
+            <h2 class="my-5">Proyectos</h2>
+
+            <!-- Contenedor de tarjetas -->
+            <div class="row">
+
+                <!-- Proyecto 2 -->
+                <div class="col-md-4 mb-4"  data-aos="fade-up">
+                    <div class="card h-100 shadow-sm bg-light">
+                        <img src="/assets/img/erp.png" class="card-img-top" alt="Proyecto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">ERP (Enterprise Resource Planning)</h5>
+                            <p><small>Enero 2024 - Actualidad</small></p>
+                            <p class="card-text">Diseñé y desarrollé un ERP para los clientes internos de la empresa, implementado en múltiples departamentos para optimizar operaciones diarias y mejorar la eficiencia en los procesos internos.</p>
+                            
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">HTML</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">JavaScript</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">CSS</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">C#</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">.NET</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">MVC</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">SQL</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">MySQL</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">jQuery</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">Bootstrap</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">IIS</span>
+                            <hr>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">SCRUM</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Azure DevOps</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Git</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">IIS</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Draw.io</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.xcf.com.mx/xslaycc" target="_blank" class="btn btn-rounded btn-primary btn-sm">Entrar a ver</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 1 -->
+                <div class="col-md-4 mb-4"  data-aos="fade-up">
+                    <div class="card h-100 shadow-sm bg-light">
+                        <img src="/assets/img/webpage.png" class="card-img-top" alt="Proyecto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Página corporativa</h5>
+                            <p><small>Junio 2023 - Julio 2023</small></p>
+                            <p class="card-text">Desarrollé una página web corporativa para XCF, especializada en el transporte de carga consolidada, que facilita la interacción entre clientes, proveedores y demandantes con un diseño intuitivo y optimizado para todos los dispositivos.</p>
+                            
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">HTML</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">JavaScript</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">CSS</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">C#</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">.NET</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">MVC</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">jQuery</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">Bootstrap</span>
+                            <hr>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark">Azure DevOps</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://www.xcf.com.mx/" target="_blank" class="btn btn-rounded btn-primary btn-sm">Entrar a ver</a>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <!-- Proyecto 3 -->
+                <div class="col-md-4 mb-4"  data-aos="fade-up">
+                    <div class="card h-100 shadow-sm bg-light">
+                        <img src="/assets/img/jartics.png" class="card-img-top" alt="Proyecto 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Ventas de proyectos de ATICS / APTI</h5>
+                            <p><small>Agosto 2023</small></p>
+                            <p class="card-text">Desarrollé una página web para un servicio especializado en apoyar a estudiantes del área de la salud con tareas académicas en el campo de las Tecnologías de la Información en Ciencias de la Salud (ATICS).</p>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">HTML</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">JavaScript</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">CSS</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">jQuery</span>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">Bootstrap</span>
+                            <hr>
+                            <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark">Git</span>
+                        </div>
+                        <div class="card-footer">
+                            <a href="https://jartics.github.io" target="_blank" class="btn btn-rounded btn-primary btn-sm">Entrar a ver</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><hr>
+        <!-- Sección de Habilidades Blandas -->
+        <section id="soft-skills" class="text-center">
+        
+            <h2 class="my-4">Habilidades Blandas</h2>
+            <!-- Contenedor con 2 filas y 3 partes -->
+            <div class="row">
+        
+                <!-- Fila 1 -->
+                <div class="col-6 my-4">
+                    <h4>Comunicación</h4>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Comunicación asertiva</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Presentaciones efectivas</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Negociación con clientes</span>
+                    </div>
+                </div>
+        
+                <!-- Fila 2 -->
+                <div class="col-6 my-4">
+                    <h4>Trabajo en equipo</h4>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Colaboración</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Resolución de conflictos</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Delegación</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Actividades de integración</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Retrospectivas</span>
+                    </div>
+                </div>
+        
+                <!-- Fila 3 -->
+                <div class="col-6 my-4">
+                    <h4>Liderazgo</h4>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Toma de decisiones</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Gestión del cambio</span>
+                    </div>
+                </div>
+        
+                <!-- Fila 4 -->
+                <div class="col-6 my-4">
+                    <h4>Gestión del tiempo</h4>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Priorización</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Planificación auto-organizada</span>
+                        <span class="badge rounded-pill bg-light border border-secondary px-3 py-2 text-dark">Manejo de plazos</span>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+        
+    </div>
+
+    <footer class="bg-dark text-light py-5 mt-5" style="border: 1px solid #ffffff25;" id="contact-info">
+        <div class="container">
+            <div class="row">
+                <!-- Columna de Información del Portafolio -->
+                <div class="col-md-4 mb-4">
+                    <h5>Sobre mí</h5>
+                    <p>Desarrollador Web Full Stack Jr. con experiencia en diversas tecnologías. Mi enfoque es crear soluciones innovadoras y efectivas.</p>
+                </div>
+    
+                <!-- Columna de Redes Sociales -->
+                <div class="col-md-4 mb-4">
+                    <h5>Redes sociales</h5>
+                    <ul class="list-unstyled d-flex">
+                        <li class="me-3">
+                            <a href="https://www.linkedin.com/in/leonardos4enz/" target="_blank" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+    
+                <!-- Columna de Redes Sociales -->
+                <div class="col-md-4 mb-4">
+                    <h5>Contacto directo</h5>
+                    <ul class="list-unstyled d-flex">
+                        <!-- Enlace de WhatsApp -->
+                        <li class="me-3">
+                            <a href="https://wa.me/8110375798" target="_blank" class="text-light"><i class="fab fa-whatsapp fa-2x"></i></a>
+                        </li>
+                        <!-- Enlace de Correo -->
+                        <li>
+                            <a href="mailto:leonardorsaenz@gmail.com" class="text-light"><i class="fas fa-envelope fa-2x"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </div>
+    
+            <hr class="bg-light">
+    
+            <!-- Derechos de autor -->
+            <div class="row">
+                <div class="col text-center">
+                    <p class="mb-0">&copy; 2024 Leonardo Sáenz. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+    
+
+    <!-- Bootstrap JS -->
+    <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script src="/lib/aos-master/aos-master/dist/aos.js"></script>
+
+    
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
