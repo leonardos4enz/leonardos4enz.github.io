@@ -66,7 +66,7 @@ $(document).ready(function () {
         const habilidades = [
             { titulo: "Lenguajes", items: ["HTML", "JavaScript", "CSS", "C#", "SQL", "MySQL"] },
             { titulo: "Tecnologías", items: [".NET", "MVC", "jQuery", "Bootstrap"] },
-            { titulo: "Metodologías", items: ["SCRUM"] },
+            { titulo: "Metodologías ágiles", items: ["SCRUM"] },
             { titulo: "Herramientas", items: ["Azure DevOps", "Draw.io"] },
             { titulo: "Control de Versiones e Infraestructura", items: ["Git", "IIS"] }
         ];
