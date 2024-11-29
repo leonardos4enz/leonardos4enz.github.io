@@ -57,7 +57,7 @@ $(document).ready(function () {
         updateDynamicElements(currentTheme);
     });
 });
-    
+
 
 
 $(document).ready(function () {
@@ -175,7 +175,7 @@ $(document).ready(function () {
 
         function crearTarjeta(proyecto) {
             return `
-                <div class="col-md-4 mb-4" data-aos="fade-up">
+                <div class="col-sm-12 col-md-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div class="card h-100 shadow-sm bg-light">
                         <img src="${proyecto.imagen}" class="card-img-top" alt="${proyecto.titulo}">
                         <div class="card-body">
