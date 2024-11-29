@@ -1,12 +1,9 @@
-// index.js
-document.addEventListener("DOMContentLoaded", () => {
-    const body = document.body;
-    const navbar = document.querySelector(".navbar");
-    const footer = document.querySelector("footer");
-    const toggleButton = document.getElementById("theme-toggle");
-    const themeIcon = document.getElementById("theme-icon");
-    const badges = document.querySelectorAll(".badge");
-    const cards = document.querySelectorAll(".card");
+$(document).ready(function () {
+    const body = $("body");
+    const navbar = $(".navbar");
+    const footer = $("footer");
+    const toggleButton = $("#theme-toggle");
+    const themeIcon = $("#theme-icon");
 
     // Restaurar tema desde localStorage
     const savedTheme = localStorage.getItem("theme");
@@ -17,8 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Alternar tema al hacer clic
-    toggleButton.addEventListener("click", () => {
-        if (body.classList.contains("bg-light")) {
+    toggleButton.on("click", function () {
+        if (body.hasClass("bg-light")) {
             applyDarkTheme();
             localStorage.setItem("theme", "dark");
         } else {
@@ -29,42 +26,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Función para aplicar tema oscuro
     function applyDarkTheme() {
-        body.classList.replace("bg-light", "bg-dark");
-        body.classList.replace("text-dark", "text-light");
-        navbar.classList.replace("navbar-light", "navbar-dark");
-        navbar.classList.replace("bg-light", "bg-dark");
-        themeIcon.classList.replace("fa-sun", "fa-moon");
-    
-        // Cambiar el tema de todos los badges
-        badges.forEach(badge => {
-            badge.classList.replace("bg-light", "bg-dark");
-            badge.classList.replace("text-dark", "text-light");
-        });
-        cards.forEach(badge => {
-            badge.classList.replace("bg-light", "bg-dark");
-            badge.classList.replace("text-dark", "text-light");
-        });
+        body.removeClass("bg-light text-dark").addClass("bg-dark text-light");
+        navbar.removeClass("navbar-light bg-light").addClass("navbar-dark bg-dark");
+        themeIcon.removeClass("fa-sun").addClass("fa-moon");
+
+        // Cambiar tema de badges y cards dinámicamente
+        updateDynamicElements("dark");
     }
-    
+
     // Función para aplicar tema claro
     function applyLightTheme() {
-        body.classList.replace("bg-dark", "bg-light");
-        body.classList.replace("text-light", "text-dark");
-        navbar.classList.replace("navbar-dark", "navbar-light");
-        navbar.classList.replace("bg-dark", "bg-light");
-        themeIcon.classList.replace("fa-moon", "fa-sun");
-    
-        // Cambiar el tema de todos los badges
-        badges.forEach(badge => {
-            badge.classList.replace("bg-dark", "bg-light");
-            badge.classList.replace("text-light", "text-dark");
-        });
-        cards.forEach(badge => {
-            badge.classList.replace("bg-dark", "bg-light");
-            badge.classList.replace("text-light", "text-dark");
-        });
+        body.removeClass("bg-dark text-light").addClass("bg-light text-dark");
+        navbar.removeClass("navbar-dark bg-dark").addClass("navbar-light bg-light");
+        themeIcon.removeClass("fa-moon").addClass("fa-sun");
+
+        // Cambiar tema de badges y cards dinámicamente
+        updateDynamicElements("light");
     }
+
+    // Función para actualizar elementos dinámicos
+    function updateDynamicElements(theme) {
+        const badgeTheme = theme === "dark" ? ["bg-light", "text-dark", "bg-dark", "text-light"] : ["bg-dark", "text-light", "bg-light", "text-dark"];
+        $(".badge").removeClass(badgeTheme[0] + " " + badgeTheme[1]).addClass(badgeTheme[2] + " " + badgeTheme[3]);
+        $(".card").removeClass(badgeTheme[0] + " " + badgeTheme[1]).addClass(badgeTheme[2] + " " + badgeTheme[3]);
+    }
+
+    // Observa dinámicamente la adición de elementos
+    $(document).on("DOMNodeInserted", ".badge, .card", function () {
+        const currentTheme = body.hasClass("bg-dark") ? "dark" : "light";
+        updateDynamicElements(currentTheme);
+    });
 });
+    
 
 
 $(document).ready(function () {

@@ -149,3 +149,13 @@ button:focus, button:active {
     padding-right: 10px;
     border-radius: 10000px;
 }
+
+
+
+
+
+
+
+.counter{
+    max-width: 80 !important;
+}
