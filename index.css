@@ -159,3 +159,21 @@ button:focus, button:active {
 .counter{
     max-width: 80 !important;
 }
+
+
+footer a:hover i {
+    color: #00ffcc;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+
+.no-scroll {
+    overflow: hidden;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

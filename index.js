@@ -1,6 +1,9 @@
-$(document).ready(function () {
+$(document).ready(async function () {
+    await cargarComponentes();
+
     const body = $("body");
     const navbar = $(".navbar");
+    console.log(navbar)
     const footer = $("footer");
     const toggleButton = $("#theme-toggle");
     const themeIcon = $("#theme-icon");
@@ -56,6 +59,8 @@ $(document).ready(function () {
         const currentTheme = body.hasClass("bg-dark") ? "dark" : "light";
         updateDynamicElements(currentTheme);
     });
+
+    hideLoading();
 });
 
 
@@ -238,3 +243,38 @@ $(document).ready(function () {
     initProyectos();
     initHabilidadesBlandas();
 });
+
+const cargarComponentes = async () => {
+    const cargarComponente = (selector, url) => {
+        return new Promise((resolve, reject) => {
+            $(selector).load(url, function (response, status, xhr) {
+                if (status === "error") {
+                    console.error(`Error al cargar el componente en ${selector}:`, xhr.status, xhr.statusText);
+                    reject(xhr);
+                } else {
+                    resolve(response);
+                }
+            });
+        });
+    };
+
+    try {
+        await cargarComponente("#components-loading-spinner-container", "components/loading-spinner/loading-spinner.html");
+        showLoading();
+        await cargarComponente("#components-footer-container", "components/footer/footer.html");
+        await cargarComponente("#components-navbar-container", "components/navbar/navbar.html");
+        console.log("Componentes cargados exitosamente");
+    } catch (error) {
+        console.error("Error al cargar los componentes:", error);
+    }
+};
+
+const showLoading = () => {
+    $("#loading-spinner").css("display", "flex");
+};
+
+const hideLoading = () => {
+    $("#loading-spinner").fadeOut(200, () => {
+    });
+};
+

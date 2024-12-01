@@ -17,33 +17,8 @@
     <script defer src="/index.js?v=1"></script>
 </head>
 <body class="bg-light text-dark">
-    <!-- Barra de Navegación -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top" >
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Leonardo Sáenz</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item me-3">
-                        <a class="nav-link active" aria-current="page" href="#skills" title="Habilidades">Habilidades</a>
-                    </li>
-                    <li class="nav-item me-3">
-                        <a class="nav-link" href="#projects" title="Proyectos">Proyectos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact-info" title="Contacto">Contacto</a>
-                    </li>
-                </ul>
-                <!-- Botón para cambiar tema -->
-                <button id="theme-toggle" class="btn text-secondary" title="Cambiar de tema">
-                    <i class="fas fa-sun" id="theme-icon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
 
+    <div id="components-navbar-container"></div>
 
     <div class="container pt-5">
         <!-- Contenido principal -->
@@ -89,76 +64,16 @@
             <h2 class="my-4">Habilidades Blandas</h2>
             <div class="row" id="soft-skills-container"></div>
         </section>
-        
     </div>
-
-    <footer class="bg-dark text-light py-5 mt-5" style="border: 1px solid #ffffff25;" id="contact-info">
-        <div class="container">
-            <div class="row">
-                <!-- Columna de Información del Portafolio -->
-                <div class="col-md-4 mb-4">
-                    <h5>Sobre mí</h5>
-                    <p>Desarrollador Web Full Stack Jr. con experiencia en diversas tecnologías. Mi enfoque es crear soluciones innovadoras y efectivas.</p>
-                    
-                    <div class="counter" >
-                        <img src="https://counter6.optistats.ovh/private/freecounterstat.php?c=2wlg23xhzrpzs6n9657lrepd6ndegez9" title="free hit counters" alt="free hit counters">
-                    </div>
-                </div>
+    <div id="components-footer-container"></div>
     
-                <!-- Columna de Redes Sociales -->
-                <div class="col-md-4 mb-4">
-                    <h5>Redes sociales</h5>
-                    <ul class="list-unstyled d-flex">
-                        <li class="me-3">
-                            <a href="https://www.linkedin.com/in/leonardos4enz/" target="_blank" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a>
-                        </li>
-                        <li class="me-3">
-                            <a href="https://www.github.com/leonardos4enz/" target="_blank" class="text-light"><i class="fab fa-github fa-2x"></i></a>
-                        </li>
-                    </ul>
-                </div>
+    <div id="components-loading-spinner-container"></div>
     
-                <!-- Columna de Redes Sociales -->
-                <div class="col-md-4 mb-4">
-                    <h5>Contacto directo</h5>
-                    <ul class="list-unstyled d-flex">
-                        <!-- Enlace de WhatsApp -->
-                        <li class="me-3">
-                            <a href="https://wa.me/8110375798" target="_blank" class="text-light"><i class="fab fa-whatsapp fa-2x"></i></a>
-                        </li>
-                        <!-- Enlace de Correo -->
-                        <li>
-                            <a href="mailto:leonardorsaenz@gmail.com" class="text-light"><i class="fas fa-envelope fa-2x"></i></a>
-                        </li>
-                    </ul>
-                </div>
-                
-            </div>
-    
-            <hr class="bg-light">
-    
-            <!-- Derechos de autor -->
-            <div class="row">
-                <div class="col text-center">
-                    <p class="mb-0">&copy; 2024 Leonardo Sáenz. Todos los derechos reservados.</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-
-    <div id="prueba"></div>
-
-    <!-- Bootstrap JS -->
     <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
-    
     <script src="/lib/aos-master/aos-master/dist/aos.js"></script>
-
-    
     <script>
         AOS.init();
     </script>
-
     <script src="/lib/jQuery/jquery.js"></script>
 </body>
 </html>
