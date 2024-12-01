@@ -10,12 +10,20 @@
             <!-- Columna de Redes Sociales -->
             <div class="col-md-4 mb-4">
                 <h5>Redes sociales</h5>
-                <ul class="list-unstyled d-flex">
-                    <li class="me-3">
-                        <a href="https://www.linkedin.com/in/leonardos4enz/" target="_blank" class="text-light" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-center mb-3">
+                        <a href="https://www.linkedin.com/in/leonardos4enz/" target="_blank" class="text-light me-2">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                        <span>LinkedIn</span>
+                        <button class="btn btn-sm btn-outline-light ms-auto" onclick="copyToClipboard('https://www.linkedin.com/in/leonardos4enz/')">Copiar</button>
                     </li>
-                    <li class="me-3">
-                        <a href="https://www.github.com/leonardos4enz/" target="_blank" class="text-light" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
+                    <li class="d-flex align-items-center mb-3">
+                        <a href="https://www.github.com/leonardos4enz/" target="_blank" class="text-light me-2">
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <span>GitHub</span>
+                        <button class="btn btn-sm btn-outline-light ms-auto" onclick="copyToClipboard('https://www.github.com/leonardos4enz/')">Copiar</button>
                     </li>
                 </ul>
             </div>
@@ -23,12 +31,20 @@
             <!-- Columna de Contacto Directo -->
             <div class="col-md-4 mb-4">
                 <h5>Contacto directo</h5>
-                <ul class="list-unstyled d-flex">
-                    <li class="me-3">
-                        <a href="https://wa.me/5218110375798" target="_blank" class="text-light" aria-label="WhatsApp"><i class="fab fa-whatsapp fa-2x"></i></a>
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-center mb-3">
+                        <a href="https://wa.me/5218110375798" target="_blank" class="text-light me-2">
+                            <i class="fab fa-whatsapp fa-2x"></i>
+                        </a>
+                        <span>WhatsApp</span>
+                        <button class="btn btn-sm btn-outline-light ms-auto" onclick="copyToClipboard('5218110375798')">Copiar</button>
                     </li>
-                    <li>
-                        <a href="mailto:leonardorsaenz@gmail.com" class="text-light" aria-label="Correo electrónico"><i class="fas fa-envelope fa-2x"></i></a>
+                    <li class="d-flex align-items-center mb-3">
+                        <a href="mailto:leonardorsaenz@gmail.com" target="_blank" class="text-light me-2">
+                            <i class="fas fa-envelope fa-2x"></i>
+                        </a>
+                        <span>leonardorsaenz@gmail.com</span>
+                        <button class="btn btn-sm btn-outline-light ms-auto" onclick="copyToClipboard('leonardorsaenz@gmail.com')">Copiar</button>
                     </li>
                 </ul>
             </div>
@@ -39,8 +55,26 @@
         <!-- Derechos de autor -->
         <div class="row">
             <div class="col text-center">
-                <p class="mb-0">&copy; 2024 Leonardo Sáenz. Todos los derechos reservados. | <a href="/politica-privacidad.html" class="text-light">Política de privacidad</a></p>
+                <p class="mb-0">&copy; 2024 Leonardo Sáenz. Todos los derechos reservados.</p>
             </div>
         </div>
     </div>
 </footer>
+
+<script>
+    function copyToClipboard(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            toastr.success('¡Texto copiado al portapapeles!', 'Éxito', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-center' // Cambia la posición aquí
+            });
+        }).catch(err => {
+            toastr.error('Error al copiar. Intenta nuevamente.', 'Error', {
+                closeButton: true,
+                progressBar: true,
+                positionClass: 'toast-top-center' // Cambia la posición aquí
+            });
+        });
+    }
+</script>

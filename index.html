@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/lib/bootstrap-5.0.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/fontawesome-free-6.7.1-web/fontawesome-free-6.7.1-web/css/all.min.css">
     <link rel="stylesheet" href="/lib/aos-master/aos-master/dist/aos.css">
+    <link rel="stylesheet" href="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.css">
 
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="/index.css?v=1">
@@ -18,7 +19,7 @@
 </head>
 <body class="bg-light text-dark">
 
-    <div id="components-navbar-container"></div>
+    <div id="components-navbar-container" class="sticky-top"></div>
 
     <div class="container pt-5">
         <!-- Contenido principal -->
@@ -26,11 +27,11 @@
             <!-- Contenedor de dos columnas -->
             <div class="row mt-5">
                 <!-- Columna de la foto -->
-                <div class="col-md-4 d-flex justify-content-center align-items-center pb-5 " data-aos="fade-up">
+                <div class="col-md-4 d-flex justify-content-center align-items-center pb-5">
                     <img src="/assets/img/me.jpg" alt="Foto de Leonardo Sáenz" class="rounded-circle" style="max-width: 300px;">
                 </div>
                 <!-- Columna de información -->
-                <div class="col-md-8 d-flex justify-content-center align-items-center" data-aos="fade-up">
+                <div class="col-md-8 d-flex justify-content-center align-items-center">
                     <div>
                         <h1>Leonardo Román Sáenz Flores<small class="display-5"> 23 años</small></h1>
                         <p class="pt-2 pb-0 mb-1">Desarrollador Web Full Stack Jr.</p>
@@ -66,8 +67,10 @@
         </section>
     </div>
     <div id="components-footer-container"></div>
-    
-    <div id="components-loading-spinner-container"></div>
+
+    <div id="loading-spinner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 1); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="border: 8px solid #00000033; border-top: 8px solid #000000; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+    </div>
     
     <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/aos-master/aos-master/dist/aos.js"></script>
@@ -75,5 +78,20 @@
         AOS.init();
     </script>
     <script src="/lib/jQuery/jquery.js"></script>
+    <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
+
+    
+    <script>
+        const showLoading = () => {
+            $("#loading-spinner").css("display", "flex");
+        };
+
+        const hideLoading = () => {
+            $("#loading-spinner").fadeOut(200, () => {
+            });
+        };
+
+        showLoading();
+    </script>
 </body>
 </html>

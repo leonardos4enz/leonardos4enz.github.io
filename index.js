@@ -1,4 +1,5 @@
 $(document).ready(async function () {
+    //showLoading();
     await cargarComponentes();
 
     const body = $("body");
@@ -60,12 +61,6 @@ $(document).ready(async function () {
         updateDynamicElements(currentTheme);
     });
 
-    hideLoading();
-});
-
-
-
-$(document).ready(function () {
     //#region Habilidades de programación
     function initHabilidadesProgramacion() {
         const habilidades = [
@@ -99,8 +94,8 @@ $(document).ready(function () {
     function initLineaAprendizaje() {
         const lineaAprendizaje = [
             {
-                fecha: "Universidad",
-                descripcion: "Conocimiento básico de lenguajes",
+                fecha: "2018 - 2022",
+                descripcion: "Facultad de Ciencias Físico Matemáticas",
                 habilidades: ["HTML", "Javascript", "CSS", "C#", "SQL", "Git"]
             },
             {
@@ -242,6 +237,8 @@ $(document).ready(function () {
     initLineaAprendizaje();
     initProyectos();
     initHabilidadesBlandas();
+
+    hideLoading();
 });
 
 const cargarComponentes = async () => {
@@ -259,8 +256,8 @@ const cargarComponentes = async () => {
     };
 
     try {
-        await cargarComponente("#components-loading-spinner-container", "components/loading-spinner/loading-spinner.html");
-        showLoading();
+        //await cargarComponente("#components-loading-spinner-container", "components/loading-spinner/loading-spinner.html");
+        
         await cargarComponente("#components-footer-container", "components/footer/footer.html");
         await cargarComponente("#components-navbar-container", "components/navbar/navbar.html");
         console.log("Componentes cargados exitosamente");
@@ -269,12 +266,4 @@ const cargarComponentes = async () => {
     }
 };
 
-const showLoading = () => {
-    $("#loading-spinner").css("display", "flex");
-};
-
-const hideLoading = () => {
-    $("#loading-spinner").fadeOut(200, () => {
-    });
-};
 
