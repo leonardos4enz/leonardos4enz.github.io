@@ -2,64 +2,7 @@ $(document).ready(async function () {
     //showLoading();
     await cargarComponentes();
 
-    const body = $("body");
-    const navbar = $(".navbar");
-    console.log(navbar)
-    const footer = $("footer");
-    const toggleButton = $("#theme-toggle");
-    const themeIcon = $("#theme-icon");
-
-    // Restaurar tema desde localStorage
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "dark") {
-        applyDarkTheme();
-    } else {
-        applyLightTheme();
-    }
-
-    // Alternar tema al hacer clic
-    toggleButton.on("click", function () {
-        if (body.hasClass("bg-light")) {
-            applyDarkTheme();
-            localStorage.setItem("theme", "dark");
-        } else {
-            applyLightTheme();
-            localStorage.setItem("theme", "light");
-        }
-    });
-
-    // Función para aplicar tema oscuro
-    function applyDarkTheme() {
-        body.removeClass("bg-light text-dark").addClass("bg-dark text-light");
-        navbar.removeClass("navbar-light bg-light").addClass("navbar-dark bg-dark");
-        themeIcon.removeClass("fa-sun").addClass("fa-moon");
-
-        // Cambiar tema de badges y cards dinámicamente
-        updateDynamicElements("dark");
-    }
-
-    // Función para aplicar tema claro
-    function applyLightTheme() {
-        body.removeClass("bg-dark text-light").addClass("bg-light text-dark");
-        navbar.removeClass("navbar-dark bg-dark").addClass("navbar-light bg-light");
-        themeIcon.removeClass("fa-moon").addClass("fa-sun");
-
-        // Cambiar tema de badges y cards dinámicamente
-        updateDynamicElements("light");
-    }
-
-    // Función para actualizar elementos dinámicos
-    function updateDynamicElements(theme) {
-        const badgeTheme = theme === "dark" ? ["bg-light", "text-dark", "bg-dark", "text-light"] : ["bg-dark", "text-light", "bg-light", "text-dark"];
-        $(".badge").removeClass(badgeTheme[0] + " " + badgeTheme[1]).addClass(badgeTheme[2] + " " + badgeTheme[3]);
-        $(".card").removeClass(badgeTheme[0] + " " + badgeTheme[1]).addClass(badgeTheme[2] + " " + badgeTheme[3]);
-    }
-
-    // Observa dinámicamente la adición de elementos
-    $(document).on("DOMNodeInserted", ".badge, .card", function () {
-        const currentTheme = body.hasClass("bg-dark") ? "dark" : "light";
-        updateDynamicElements(currentTheme);
-    });
+    
 
     //#region Habilidades de programación
     function initHabilidadesProgramacion() {
@@ -237,6 +180,68 @@ $(document).ready(async function () {
     initLineaAprendizaje();
     initProyectos();
     initHabilidadesBlandas();
+
+    //#region Temas oscuro y claro
+    const body = $("body");
+    const navbar = $(".navbar");
+    console.log(navbar)
+    const footer = $("footer");
+    const toggleButton = $("#theme-toggle");
+    const themeIcon = $("#theme-icon");
+
+    // Restaurar tema desde localStorage
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "dark") {
+        applyDarkTheme();
+    } else {
+        applyLightTheme();
+    }
+
+    // Alternar tema al hacer clic
+    toggleButton.on("click", function () {
+        if (body.hasClass("bg-light")) {
+            applyDarkTheme();
+            localStorage.setItem("theme", "dark");
+        } else {
+            applyLightTheme();
+            localStorage.setItem("theme", "light");
+        }
+    });
+
+    // Función para aplicar tema oscuro
+    function applyDarkTheme() {
+        body.removeClass("bg-light text-dark").addClass("bg-dark text-light");
+        navbar.removeClass("navbar-light bg-light").addClass("navbar-dark bg-dark");
+        themeIcon.removeClass("fa-sun").addClass("fa-moon");
+
+        // Cambiar tema de badges y cards dinámicamente
+        updateDynamicElements("dark");
+    }
+
+    // Función para aplicar tema claro
+    function applyLightTheme() {
+        body.removeClass("bg-dark text-light").addClass("bg-light text-dark");
+        navbar.removeClass("navbar-dark bg-dark").addClass("navbar-light bg-light");
+        themeIcon.removeClass("fa-moon").addClass("fa-sun");
+
+        // Cambiar tema de badges y cards dinámicamente
+        updateDynamicElements("light");
+    }
+
+    // Función para actualizar elementos dinámicos
+    function updateDynamicElements(theme) {
+        const badgeTheme = theme === "dark" ? ["bg-light", "text-dark", "bg-dark", "text-light"] : ["bg-dark", "text-light", "bg-light", "text-dark"];
+        $(".badge").removeClass(badgeTheme[0] + " " + badgeTheme[1]).addClass(badgeTheme[2] + " " + badgeTheme[3]);
+        $(".card").removeClass(badgeTheme[0] + " " + badgeTheme[1]).addClass(badgeTheme[2] + " " + badgeTheme[3]);
+    }
+
+    // Observa dinámicamente la adición de elementos
+    $(document).on("DOMNodeInserted", ".badge, .card", function () {
+        const currentTheme = body.hasClass("bg-dark") ? "dark" : "light";
+        updateDynamicElements(currentTheme);
+    });
+
+    //#endregion
 
     hideLoading();
 });
