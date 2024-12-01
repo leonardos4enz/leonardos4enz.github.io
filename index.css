@@ -178,3 +178,13 @@ footer a:hover i {
     100% { transform: rotate(360deg); }
 }
 
+a {
+    color: inherit; /* Hereda el color del texto circundante */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Opcional: Estilo al pasar el mouse */
+a:hover {
+    color: #00ffcc;
+    transition: 0.3s;
+}
