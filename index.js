@@ -215,8 +215,8 @@ $(document).ready(async function () {
     const navbar = $(".navbar");
     console.log(navbar)
     const footer = $("footer");
-    const toggleButton = $("#theme-toggle");
-    const themeIcon = $("#theme-icon");
+    const toggleButton = $(".theme-toggle");
+    const themeIcon = $(".theme-icon");
 
     // Restaurar tema desde localStorage
     const savedTheme = localStorage.getItem("theme");

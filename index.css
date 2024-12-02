@@ -188,3 +188,30 @@ a:hover {
     color: #00ffcc;
     transition: 0.3s;
 }
+
+
+
+
+
+
+/* Para vista móvil */
+@media (max-width: 991px) {
+    #theme-left-button {
+        display: inline;
+    }
+
+    #theme-right-button {
+        display: none;
+    }
+}
+
+/* Para vista de escritorio */
+@media (min-width: 992px) {
+    #theme-left-button {
+        display: none;
+    }
+
+    #theme-right-button {
+        display: inline;
+    }
+}
