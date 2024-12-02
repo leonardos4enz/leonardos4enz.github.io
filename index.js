@@ -33,6 +33,32 @@ $(document).ready(async function () {
     }
     //#endregion
 
+    //#region Roles Desempeñados
+    function initRolesDesempenados() {
+        const roles = [
+            "Practicante de desarrollo",
+            "Desarrollador Web Full Stack Jr.",
+            "Líder de proyectos"
+        ];
+
+        function crearBadge(titulo) {
+            return `
+                <span class="badge rounded-pill bg-light border border-secondary px-3 my-1 text-dark me-2">
+                    ${titulo}
+                </span>
+            `;
+        }
+
+        const contenedor = $("#roles");
+        roles.forEach(titulo => {
+            const badge = crearBadge(titulo);
+            contenedor.append(badge);
+        });
+    }
+    //#endregion
+
+
+
     //#region Línea de aprendizaje
     function initLineaAprendizaje() {
         const lineaAprendizaje = [
@@ -180,6 +206,7 @@ $(document).ready(async function () {
     initLineaAprendizaje();
     initProyectos();
     initHabilidadesBlandas();
+    initRolesDesempenados();
 
     //#region Temas oscuro y claro
     const body = $("body");
