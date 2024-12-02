@@ -7,7 +7,7 @@ $(document).ready(async function () {
     //#region Habilidades de programación
     function initHabilidadesProgramacion() {
         const habilidades = [
-            { titulo: "Lenguajes", items: ["HTML", "JavaScript", "CSS", "C#", "SQL", "MySQL"] },
+            { titulo: "Lenguajes", items: ["HTML", "JavaScript", "CSS", "C#", "SQL", "MySQL"], descripcion: "Lenguajes de programacion" },
             { titulo: "Tecnologías", items: [".NET", "MVC", "jQuery", "Bootstrap"] },
             { titulo: "Metodologías ágiles", items: ["SCRUM"] },
             { titulo: "Herramientas", items: ["Azure DevOps", "Draw.io"] },
