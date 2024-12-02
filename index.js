@@ -147,11 +147,13 @@ $(document).ready(async function () {
                 <div class="col-sm-12 col-md-6 col-lg-4 mb-4" data-aos="fade-up">
                     <div class="card h-100 shadow-sm bg-light">
                         <img src="${proyecto.imagen}" class="card-img-top" alt="${proyecto.titulo}">
-                        <div class="card-body">
+                        <div class="card-body text-start">
                             <h5 class="card-title">${proyecto.titulo}</h5>
                             <p><small>${proyecto.fecha}</small></p>
                             <p class="card-text">${proyecto.descripcion}</p>
+                            <div class="">
                             ${proyecto.habilidades.map(habilidad => `<span class="badge rounded-pill bg-light border border-secondary px-3 my-1 mb-2 text-dark me-2">${habilidad}</span>`).join("")}
+                            </div>
                         </div>
                         <div class="card-footer">
                             <a href="${proyecto.link}" target="_blank" class="btn btn-rounded btn-primary btn-sm">Entrar a ver</a>
