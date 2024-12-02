@@ -119,28 +119,39 @@ $(document).ready(async function () {
             {
                 titulo: "ERP (Enterprise Resource Planning)",
                 fecha: "Enero 2024 - Actualidad",
-                descripcion: "Diseñé y desarrollé un ERP para los clientes internos de la empresa, implementado en múltiples departamentos para optimizar operaciones diarias y mejorar la eficiencia en los procesos internos.",
-                habilidades: ["HTML", "JavaScript", "CSS", "C#", ".NET", "MVC", "SQL", "MySQL", "jQuery", "Bootstrap", "IIS", "SCRUM", "Azure DevOps", "Git", "Draw.io"],
+                descripcion:
+                    "Diseñé y desarrollé un ERP para los clientes internos de la empresa, implementado en múltiples departamentos para optimizar operaciones diarias y mejorar la eficiencia en los procesos internos.",
+                habilidades: [
+                    "HTML", "CSS", "JavaScript", "C#", ".NET", "MVC",
+                    "SQL", "MySQL", "jQuery", "Bootstrap", "IIS",
+                    "SCRUM", "Azure DevOps", "Git", "Draw.io"
+                ],
                 imagen: "/assets/img/erp.png",
                 link: "https://www.xcf.com.mx/xslaycc"
             },
             {
                 titulo: "Página corporativa",
                 fecha: "Junio 2023 - Julio 2023",
-                descripcion: "Desarrollé una página web corporativa para XCF, especializada en el transporte de carga consolidada, que facilita la interacción entre clientes, proveedores y demandantes con un diseño intuitivo y optimizado para todos los dispositivos.",
-                habilidades: ["HTML", "JavaScript", "CSS", "C#", ".NET", "MVC", "jQuery", "Bootstrap", "Azure DevOps"],
+                descripcion:
+                    "Desarrollé una página web corporativa para XCF, especializada en el transporte de carga consolidada, que facilita la interacción entre clientes, proveedores y demandantes con un diseño intuitivo y optimizado para todos los dispositivos.",
+                habilidades: [
+                    "HTML", "CSS", "JavaScript", "C#", ".NET", "MVC",
+                    "jQuery", "Bootstrap", "Azure DevOps"
+                ],
                 imagen: "/assets/img/webpage.png",
                 link: "https://www.xcf.com.mx/"
             },
             {
                 titulo: "Ventas de proyectos de ATICS / APTI",
                 fecha: "Agosto 2023",
-                descripcion: "Desarrollé una página web para un servicio especializado en apoyar a estudiantes del área de la salud con tareas académicas en el campo de las Tecnologías de la Información en Ciencias de la Salud (ATICS).",
-                habilidades: ["HTML", "JavaScript", "CSS", "jQuery", "Bootstrap", "Git"],
+                descripcion:
+                    "Desarrollé una página web para un servicio especializado en apoyar a estudiantes del área de la salud con tareas académicas en el campo de las Tecnologías de la Información en Ciencias de la Salud (ATICS).",
+                habilidades: ["HTML", "CSS", "JavaScript", "jQuery", "Bootstrap", "Git"],
                 imagen: "/assets/img/jartics.png",
                 link: "https://jartics.github.io"
             }
         ];
+        
 
         function crearTarjeta(proyecto) {
             return `
