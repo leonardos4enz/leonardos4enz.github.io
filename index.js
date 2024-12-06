@@ -288,3 +288,4 @@ const cargarComponentes = async () => {
         console.error("Error al cargar los componentes:", error);
     }
 };
+//Punto verde para github
