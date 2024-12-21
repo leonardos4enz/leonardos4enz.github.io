@@ -68,16 +68,16 @@
 <script>
     function copyToClipboard(text) {
         navigator.clipboard.writeText(text).then(() => {
-            toastr.success('¡Texto copiado al portapapeles!', 'Éxito', {
+            toastr.success('¡Copiado al portapapeles!','', {
                 closeButton: true,
-                progressBar: true,
-                positionClass: 'toast-top-center' // Cambia la posición aquí
+                progressBar: false,
+                positionClass: 'toast-top-center'
             });
         }).catch(err => {
             toastr.error('Error al copiar. Intenta nuevamente.', 'Error', {
                 closeButton: true,
-                progressBar: true,
-                positionClass: 'toast-top-center' // Cambia la posición aquí
+                progressBar: false,
+                positionClass: 'toast-top-center'
             });
         });
     }
