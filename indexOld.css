@@ -1,0 +1,218 @@
+:root {
+    --color-dark: #1E201E; /* Negro oscuro */
+    --color-gray-dark: #3C3D37; /* Gris oscuro */
+    --color-gray-green: #697565; /* Gris verdoso */
+    --color-beige: #ECDFCC; /* Beige */
+}
+/* index.css */
+body {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(0, 0, 0, 0.082) 100%);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-dark .navbar-brand,
+.navbar-dark .nav-link {
+    color: #ffffff;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .nav-link {
+    color: #000000;
+}
+
+.btn-outline-secondary {
+    border: none;
+    background-color: transparent;
+}
+
+.profile-picture img {
+    width: 300px;
+    height: 300px;
+    border: 5px solid white; /* Borde claro por defecto */
+    transition: border-color 0.3s;
+}
+
+
+
+.brief-info {
+    font-size: 1.2em;
+    color: inherit; /* Sigue el color del tema */
+}
+
+button:focus, button:active {
+    outline: none !important; /* Elimina el borde azul */
+    box-shadow: none !important; /* Elimina el efecto de sombra */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.timeline-steps {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap
+}
+
+.timeline-steps .timeline-step {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 1rem
+}
+
+@media (min-width:768px) {
+    .timeline-steps .timeline-step:not(:last-child):after {
+        content: "";
+        display: block;
+        border-top: .25rem dotted #8f8f8f;
+        width: 3.46rem;
+        position: absolute;
+        left: 7.5rem;
+        top: .3125rem
+    }
+    .timeline-steps .timeline-step:not(:first-child):before {
+        content: "";
+        display: block;
+        border-top: .25rem dotted #8f8f8f;
+        width: 3.8125rem;
+        position: absolute;
+        right: 7.5rem;
+        top: .3125rem
+    }
+}
+
+.timeline-steps .timeline-content {
+    width: 10rem;
+    text-align: center
+}
+
+.timeline-steps .timeline-content .inner-circle {
+    border-radius: 1.5rem;
+    height: 1rem;
+    width: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #8f8f8f
+}
+
+.timeline-steps .timeline-content .inner-circle:before {
+    content: "";
+    background-color: #4e4e4e;
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    min-width: 3rem;
+    border-radius: 6.25rem;
+    opacity: .5
+}
+
+
+
+
+
+
+
+.card{
+    border-radius: 1rem !important;
+}
+
+.card-footer{
+    border-radius: 0 0 1rem 1rem !important;
+}
+
+.card-img, .card-img-top {
+    border-radius: 1rem 1rem 0 0 !important;
+}
+
+.btn-rounded{
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10000px;
+}
+
+
+
+
+
+
+
+.counter{
+    max-width: 80 !important;
+}
+
+
+footer a:hover i {
+    color: #00ffcc;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+
+.no-scroll {
+    overflow: hidden;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+a {
+    color: inherit; /* Hereda el color del texto circundante */
+    text-decoration: none; /* Elimina el subrayado */
+}
+
+/* Opcional: Estilo al pasar el mouse */
+a:hover {
+    color: #00ffcc;
+    transition: 0.3s;
+}
+
+
+
+
+
+
+/* Para vista móvil */
+@media (max-width: 991px) {
+    #theme-left-button {
+        display: inline;
+    }
+
+    #theme-right-button {
+        display: none;
+    }
+}
+
+/* Para vista de escritorio */
+@media (min-width: 992px) {
+    #theme-left-button {
+        display: none;
+    }
+
+    #theme-right-button {
+        display: inline;
+    }
+}
+

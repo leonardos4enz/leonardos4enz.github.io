@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Leonardo Sáenz</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/lib/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/fontawesome-free-6.7.1-web/fontawesome-free-6.7.1-web/css/all.min.css">
+    <link rel="stylesheet" href="/lib/aos-master/aos-master/dist/aos.css">
+    <link rel="stylesheet" href="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.css">
+
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="/index.css?v=1">
+
+    <!-- JavaScript -->
+    <script defer src="/index.js?v=1"></script>
+</head>
+<body class="bg-light text-dark">
+
+    <div id="components-navbar-container" class="sticky-top"></div>
+
+    <div class="container pt-5">
+        <!-- Contenido principal -->
+        <section id="about" class="mt-5 mb-5 text-center" >
+            <!-- Contenedor de dos columnas -->
+            <div class="row mt-5">
+                <!-- Columna de la foto -->
+                <div class="col-md-4 d-flex justify-content-center align-items-center pb-5">
+                    <img src="/assets/img/me.jpg" alt="Foto de Leonardo Sáenz" class="rounded-circle" style="max-width: 300px;">
+                </div>
+                <!-- Columna de información -->
+                <div class="col-md-8 d-flex justify-content-center align-items-center">
+                    <div>
+                        <h1>Leonardo Román Sáenz Flores<small class="display-5"> 23 años</small></h1>
+                        <p class="pt-2 pb-0 mb-1">Desarrollador Web Full Stack Jr.</p>
+                        
+                        <p class="fst-italic">2 años de experiencia laboral</p>
+                    </div>
+                </div>    
+            </div>
+        </section>
+        <hr>
+        <section id="skills" class="text-center" data-aos="fade-up">
+            <h2 class="my-4">Habilidades de Programación</h2>
+            <p class="mb-4">Cuento con conocimientos en diversas tecnologías y lenguajes de programación, adquiridos a través de aprendizaje y proyectos prácticos.</p>
+            <div class="row"></div>
+        </section>
+        <hr>
+        <section id="roles" class="text-center mb-5" data-aos="fade-up">
+            <h2 class="my-4">Roles Desempeñados</h2>
+            <p class="mb-4">Roles que he desempeñado a lo largo de mi trayectoria, destacando mis contribuciones y responsabilidades en cada posición.</p>
+            <div class="row" id="roles-container"></div>
+        </section>
+        <hr>
+        <section class="text-center" data-aos="fade-up">
+            <h2 class="my-4">Línea de Aprendizaje</h2>
+            <p class="mb-4">Un recorrido por mi evolución profesional y académica, destacando las etapas clave en mi proceso de aprendizaje y desarrollo.</p>
+            <div class="row">
+                <div class="col">
+                    <div class="timeline-steps" id="timeline"></div>
+                </div>
+            </div>
+        </section>
+        <hr >
+        <section id="projects" class="text-center" data-aos="fade-up">
+            <h2 class="my-4">Proyectos</h2>
+            <p class="mb-4">Explora algunos de los proyectos en los que he trabajado, desde soluciones técnicas hasta implementaciones creativas, que reflejan mi experiencia y enfoque en resultados.</p>
+            <div class="row" id="project-cards"></div>
+        </section>
+        <hr>
+        <section id="soft-skills" class="text-center" data-aos="fade-up">
+            <h2 class="my-4">Habilidades Blandas</h2>
+            <p class="mb-4">Un conjunto de competencias interpersonales y comunicativas que complementan mis habilidades técnicas, esenciales para trabajar en equipo y liderar proyectos con éxito.</p>
+            <div class="row" id="soft-skills-container"></div>
+        </section>
+        
+    </div>
+    <div id="components-footer-container"></div>
+
+    <div id="loading-spinner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 1); z-index: 9999; justify-content: center; align-items: center;">
+        <div style="border: 8px solid #00000033; border-top: 8px solid #000000; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+    </div>
+    
+    <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/aos-master/aos-master/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="/lib/jQuery/jquery.js"></script>
+    <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
+
+    
+    <script>
+        const showLoading = () => {
+            $("#loading-spinner").css("display", "flex");
+        };
+
+        const hideLoading = () => {
+            $("#loading-spinner").fadeOut(200, () => {
+            });
+        };
+
+        showLoading();
+    </script>
+</body>
+</html>

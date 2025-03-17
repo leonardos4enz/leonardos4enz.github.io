@@ -17,96 +17,101 @@
 
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="/index.css?v=1">
-
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+          
     <!-- JavaScript -->
-    <script defer src="/index.js?v=1"></script>
+    <script defer src="/index.js?v=2"></script>
 </head>
-<body class="bg-light text-dark">
-
-    <div id="components-navbar-container" class="sticky-top"></div>
-
-    <div class="container pt-5">
-        <!-- Contenido principal -->
-        <section id="about" class="mt-5 mb-5 text-center" >
-            <!-- Contenedor de dos columnas -->
-            <div class="row mt-5">
-                <!-- Columna de la foto -->
-                <div class="col-md-4 d-flex justify-content-center align-items-center pb-5">
-                    <img src="/assets/img/me.jpg" alt="Foto de Leonardo Sáenz" class="rounded-circle" style="max-width: 300px;">
-                </div>
-                <!-- Columna de información -->
-                <div class="col-md-8 d-flex justify-content-center align-items-center">
-                    <div>
-                        <h1>Leonardo Román Sáenz Flores<small class="display-5"> 23 años</small></h1>
-                        <p class="pt-2 pb-0 mb-1">Desarrollador Web Full Stack Jr.</p>
-                        
-                        <p class="fst-italic">2 años de experiencia laboral</p>
+<body class="">
+    <div class=" contenedor-principal">
+        <div class="container">
+            <!-- Sección "Sobre mí" -->
+            <section id="about" class="text-center">
+                <div class="row">
+                    <!-- Foto -->
+                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                        <div class="blueprint-border">
+                            <img src="/assets/img/me.jpg" alt="Foto de Leonardo Sáenz" class="rounded-circle">
+                        </div>
                     </div>
-                </div>    
-            </div>
-        </section>
-        <hr>
-        <section id="skills" class="text-center" data-aos="fade-up">
-            <h2 class="my-4">Habilidades de Programación</h2>
-            <p class="mb-4">Cuento con conocimientos en diversas tecnologías y lenguajes de programación, adquiridos a través de aprendizaje y proyectos prácticos.</p>
-            <div class="row"></div>
-        </section>
-        <hr>
-        <section id="roles" class="text-center mb-5" data-aos="fade-up">
-            <h2 class="my-4">Roles Desempeñados</h2>
-            <p class="mb-4">Roles que he desempeñado a lo largo de mi trayectoria, destacando mis contribuciones y responsabilidades en cada posición.</p>
-            <div class="row" id="roles-container"></div>
-        </section>
-        <hr>
-        <section class="text-center" data-aos="fade-up">
-            <h2 class="my-4">Línea de Aprendizaje</h2>
-            <p class="mb-4">Un recorrido por mi evolución profesional y académica, destacando las etapas clave en mi proceso de aprendizaje y desarrollo.</p>
-            <div class="row">
-                <div class="col">
-                    <div class="timeline-steps" id="timeline"></div>
+                    <!-- Info -->
+                    <div class="col-md-8 d-flex justify-content-center align-items-center mt-3 mt-md-0">
+                        <div>
+                            <h1 class="portfolio-nombre">Leonardo Román Sáenz Flores</h1>
+                            <p class="fst-italic" id="experience-text">
+                                <span id="experience-years"></span> de experiencia laboral
+                                <br>
+                                <span class="badge bg-primary">Desarrollador Web Full Stack Jr.</span>
+                                <span class="badge bg-primary">Líder de proyectos</span>
+                            </p>
+                        </div>
+                    </div>    
                 </div>
-            </div>
-        </section>
-        <hr >
-        <section id="projects" class="text-center" data-aos="fade-up">
-            <h2 class="my-4">Proyectos</h2>
-            <p class="mb-4">Explora algunos de los proyectos en los que he trabajado, desde soluciones técnicas hasta implementaciones creativas, que reflejan mi experiencia y enfoque en resultados.</p>
-            <div class="row" id="project-cards"></div>
-        </section>
-        <hr>
-        <section id="soft-skills" class="text-center" data-aos="fade-up">
-            <h2 class="my-4">Habilidades Blandas</h2>
-            <p class="mb-4">Un conjunto de competencias interpersonales y comunicativas que complementan mis habilidades técnicas, esenciales para trabajar en equipo y liderar proyectos con éxito.</p>
-            <div class="row" id="soft-skills-container"></div>
-        </section>
-        
+            </section>
+            
+            <section id="projects" class="text-start">
+                <h2 class="section-title">Proyectos</h2>
+                <div class="col-12 d-flex flex-wrap justify-content-center align-content-center gap-4" id="projects-container"></div>
+            </section>
+            
+            <section id="timeline text-center" class="text-start">
+                <div class="d-flex row">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-5">
+                        <h2 class="section-title text-center">Línea de aprendizaje</h2>
+                        <div id="section-timeline-container d-flex">
+                            <div class="timeline" id="timeline-container"></div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+                        <h2 class="section-title text-center">Conocimiento de tecnologías</h2>
+                        <div id="tecnologias-container"></div>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
     </div>
-    <div id="components-footer-container"></div>
 
-    <div id="loading-spinner" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(255, 255, 255, 1); z-index: 9999; justify-content: center; align-items: center;">
-        <div style="border: 8px solid #00000033; border-top: 8px solid #000000; border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite;"></div>
+    <div class="position-fixed bottom-0 end-0 p-3">
+        <div class="d-flex flex-column gap-1">
+            
+            <!-- LinkedIn -->
+            <a href="https://www.linkedin.com/in/leonardos4enz/" target="_blank" class="btn btn-primary" title="LinkedIn">
+                <i class="fab fa-linkedin-in fa-lg"></i>
+            </a>
+
+            <!-- Copiar Email -->
+            <button class="btn btn-danger" title="Copiar Email" onclick="copyEmail()">
+                <i class="fas fa-envelope fa-lg"></i>
+            </button>
+
+            <!-- WhatsApp -->
+            <a href="https://wa.me/528110375798" target="_blank" class="btn btn-success" title="WhatsApp">
+                <i class="fab fa-whatsapp fa-lg"></i>
+            </a>
+
+            <!-- GitHub -->
+            <a href="https://www.github.com/leonardos4enz/" target="_blank" class="btn btn-dark" title="GitHub">
+                <i class="fab fa-github fa-lg"></i>
+            </a>
+
+        </div>
     </div>
+
+
     
     <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/lib/aos-master/aos-master/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
     <script src="/lib/jQuery/jquery.js"></script>
     <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" integrity="sha512-XHDcSyqhOoO2ocB7sKOCJEkUjw/pQCJViP1ynpy+EGh/LggzrP6U/V3a++LQTnZT7sCQKeHRyWHfhN2afjXjCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
 
-    
-    <script>
-        const showLoading = () => {
-            $("#loading-spinner").css("display", "flex");
-        };
-
-        const hideLoading = () => {
-            $("#loading-spinner").fadeOut(200, () => {
-            });
-        };
-
-        showLoading();
-    </script>
 </body>
 </html>
