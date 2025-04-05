@@ -56,8 +56,8 @@ const initProjects = () => {
                             <i class="fas fa-eye"></i> Ver
                         </a>
                         ${project.modalBody ? `
-                        <button type="button" class="btn btn-outline-secondary border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
-                            <i class="fas fa-edit"></i> Cómo se hizo
+                        <button type="button" class="btn btn-outline-dark border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
+                            <i class="fas fa-question-circle"></i> Arquitectura
                         </button>
                         ` : ''}
                     </div>  
