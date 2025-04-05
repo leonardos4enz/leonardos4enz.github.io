@@ -118,8 +118,8 @@ section #projects{
 .glasmorphism-bg{
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0px 0px 10px 1px #00000015;
-    backdrop-filter: blur( 2.5px );
-    -webkit-backdrop-filter: blur( 2.5px );
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.653);
     display: flex;
@@ -200,6 +200,8 @@ section #projects{
     margin-left: 40px;
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
     padding: 14px;
+    backdrop-filter: blur( 2px );
+    -webkit-backdrop-filter: blur( 2px );
 }
 
 
