@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Leonardo Sáenz</title>
+    <title>Leonardo Sáenz</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
@@ -19,17 +19,17 @@
     <link rel="stylesheet" href="/index.css?v=1">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
-          
-    <!-- JavaScript -->
-    <script defer src="/index.js?v=2"></script>
 </head>
 <body class="">
     <div class=" contenedor-principal">
         <div class="container">
+
+            
+
             <!-- Sección "Sobre mí" -->
             <section id="about" class="text-center">
                 <div class="row">
@@ -58,7 +58,11 @@
                 <h2 class="section-title">Proyectos</h2>
                 <div class="col-12 d-flex flex-wrap justify-content-center align-content-center gap-4" id="projects-container"></div>
             </section>
-            
+
+            <div class="d-flex justify-content-center align-items-center mt-2 mt-md-5">
+                <canvas id="canvas" style="width: 30vw; height: 200px;"></canvas>
+            </div>
+
             <section id="timeline text-center" class="text-start">
                 <div class="d-flex row">
                     <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-5">
@@ -74,6 +78,7 @@
                 </div>
             </section>
             
+
         </div>
     </div>
 
@@ -103,8 +108,38 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal fade modal-blueprint" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModalLabel">Detalles del Proyecto</h5>
+                    <button type="button" class="btn-close btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container"></div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center align-items-center">
+                    <div class="">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">
+                            <i class="fas fa-times fa-lg"></i> Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    
+    <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="modalImage" src="" class="img-fluid" alt="Imagen Ampliada">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/jQuery/jquery.js"></script>
     <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
@@ -112,6 +147,8 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js" integrity="sha512-XHDcSyqhOoO2ocB7sKOCJEkUjw/pQCJViP1ynpy+EGh/LggzrP6U/V3a++LQTnZT7sCQKeHRyWHfhN2afjXjCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
+    <script src="https://unpkg.com/@rive-app/canvas"></script>
 
+    <script defer src="/index.js?v=2"></script>
 </body>
 </html>

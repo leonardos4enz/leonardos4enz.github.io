@@ -1,18 +1,46 @@
 $(document).ready(function () {
     gsap.registerPlugin(ScrollTrigger);
-    initProjects();
     initTimeline();
     initTecnologias();
+    initProjects();
     gsapAnimations();
 
     let fechaInicioLaboral = "2023-04-03";
     $("#experience-years").text(calcularExperiencia(fechaInicioLaboral));
+
+    const riveFile = '/assets/rive/cat_2.riv'; // Asegúrate de que esta ruta sea correcta
+
+    const r = new rive.Rive({
+        src: riveFile,
+        // OR the path to a discoverable and public Rive asset
+        // src: '/public/example.riv',
+        canvas: document.getElementById("canvas"),
+        autoplay: true,
+        // artboard: "Arboard", // Optional. If not supplied the default is selected
+        stateMachines: "State Machine 1",
+        onLoad: () => {
+            r.resizeDrawingSurfaceToCanvas();
+
+            // Animación de fade in para el gato
+            gsap.fromTo(r.canvas, 
+                { opacity: 0 }, // Comienza completamente transparente
+                { opacity: 1, duration: 1 } // Termina completamente visible
+            );
+        },
+    });
+
+    window.addEventListener("resize", () => {
+        r.resizeDrawingSurfaceToCanvas();
+    });
+    
+    
 });
+
 
 //#region Projects
 
 const initProjects = () => {
-    let projectHTML = projects.map(project => {
+    let projectHTML = projects.reverse().map(project => {
         let techIcons = project.technologies.map(tech => 
             `<i class='devicon-${tech}-plain colored'></i>`).join(" ");
     
@@ -23,7 +51,16 @@ const initProjects = () => {
                     <p class="text-muted"><small>${project.year}</small></p>
                     <p>${techIcons}</p>
                     <p class="flex-grow-1">${project.description}</p>
-                    <a href="${project.link}" class="btn btn-outline-dark mt-auto border-dashed" target="_blank">Conocer</a>
+                    <div class="d-flex justify-content-around mt-auto">
+                        <a href="${project.link}" class="btn btn-outline-dark border-dashed" target="_blank" style="padding: 0.5rem 1.5rem;">
+                            <i class="fas fa-eye"></i> Ver
+                        </a>
+                        ${project.modalBody ? `
+                        <button type="button" class="btn btn-outline-secondary border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
+                            <i class="fas fa-edit"></i> Cómo se hizo
+                        </button>
+                        ` : ''}
+                    </div>  
                 </div>
             </div>`;
     }).join("");
@@ -39,45 +76,81 @@ const initProjects = () => {
             ease: "power3.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 85%", // Inicia la animación cuando el 85% del elemento entra en la vista
+                start: "top 85%",
                 toggleActions: "play none none none",
             }
         });
     });
-
-    // Animación de hover para proyectos
-    $(".project-item").hover(
-        function() {
-            gsap.to(this, { scale: 1.05, duration: 0.3, ease: "power1.out" });
-        },
-        function() {
-            gsap.to(this, { scale: 1, duration: 0.3, ease: "power1.out" });
-        }
-    );
 };
 
+// Función para mostrar detalles en el modal
+function showProjectDetails(title, projectId) {
+    const modalTitle = document.getElementById('projectModalLabel');
+    const modalBodyElement = document.querySelector('.modal-body .container');
+    
+    modalTitle.textContent = title;
+
+    // Buscar el proyecto por su ID
+    const project = projects.find(p => p.projectId === projectId);
+    if (project) {
+        modalBodyElement.innerHTML = project.modalBody;
+    }
+}
 
 const projects = [
     {
-        title: "XSLAYCC",
-        year: "2024-2025",
-        technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "microsoftsqlserver", "mysql", "azuredevops", "git"],
-        description: "Diseñé y desarrollé un ERP para los clientes internos de XCF.",
-        link: "https://www.xcf.com.mx/xslaycc"
+        title: "JARTICS",
+        year: "2023",
+        technologies: ["html5", "css3", "javascript", "git"],
+        description: "Página Web para ATICS de estudiantes del área de la salud.",
+        projectId: "jartics",
+        link: "https://jartics.github.io"
     },
     {
         title: "Página XCF",
         year: "2023",
         technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "mysql", "azuredevops"],
         description: "Desarrollé una página web corporativa para XCF.",
+        projectId: "pagina-xcf",
         link: "https://www.xcf.com.mx/"
     },
     {
-        title: "JARTICS",
-        year: "2023",
-        technologies: ["html5", "css3", "javascript", "git"],
-        description: "Página Web para ATICS de estudiantes del área de la salud.",
-        link: "https://jartics.github.io"
+        title: "XSLAYCC",
+        year: "2024-2025",
+        technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "microsoftsqlserver", "mysql", "azuredevops", "git"],
+        description: "Diseñé y desarrollé un ERP para los clientes internos de XCF.",
+        projectId: "xslaycc",
+        link: "https://www.xcf.com.mx/xslaycc",
+        modalBody: `
+            <h4 class="mb-4 mt-4">¿Qué es XSLAYCC?</h4>
+            <p class="my-5">
+                Se trata de un sistema ERP integral diseñado para optimizar la gestión interna de la empresa. El ERP incluye diversos módulos que abarcan áreas críticas como compras, gestión de inventarios y administración de flotillas. Cada interfaz está diseñada con una lógica de negocio específica, incorporando reglas y procesos adaptados a las necesidades operativas de la organización, desde catálogos simples hasta flujos de trabajo más complejos, así como configuraciones personalizadas.
+            </p>
+            <div id="carouselXSLAYCC" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="/assets/img/projects/xslaycc/1.png" class="d-block w-100" alt="Imagen 1" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/1.png')">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/projects/xslaycc/2.png" class="d-block w-100" alt="Imagen 2" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/2.png')">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/projects/xslaycc/3.png" class="d-block w-100" alt="Imagen 3" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/3.png')">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="/assets/img/projects/xslaycc/4.png" class="d-block w-100" alt="Imagen 4" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/4.png')">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselXSLAYCC" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselXSLAYCC" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        `
     }
 ];
 
@@ -198,7 +271,7 @@ const initTecnologias = () => {
     let techHTML = uniqueTechnologies.map(tech => {
         let iconClass = deviconMap[tech] || ""; // Si no hay ícono, queda vacío
         return `
-            <span class="badge tech-item bg-secondary text-white p-2 m-2">
+            <span class="badge tech-item bg-secondary text-white p-2 m-2 mb-4">
                 ${iconClass ? `<i class="${iconClass}"></i> ` : ""}${tech}
             </span>
         `;
@@ -300,4 +373,12 @@ function calcularExperiencia(fechaInicio) {
     } else {
         return `${meses} mes${meses > 1 ? 'es' : ''}`;
     }
+}
+
+function openImageModal(imageSrc) {
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = imageSrc;
+    const modal = new bootstrap.Modal(imageModal);
+    modal.show();
 }

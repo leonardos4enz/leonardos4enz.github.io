@@ -1,4 +1,3 @@
-
 .contenedor-principal {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
@@ -90,11 +89,16 @@
     margin-bottom: 20px;
 }
 
-
 section {
     margin: 0px;
     padding: 0px;
-    padding-top: 140px;
+    padding-top: 40px; /* Para tamaño de celular */
+}
+
+@media (min-width: 576px) {
+    section {
+        padding-top: 100px; /* Para tamaños mayores a celular */
+    }
 }
 
 section .section-title{
@@ -247,12 +251,70 @@ section #projects{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.floating-buttons a:hover, .floating-buttons button:hover {
-    transform: scale(1.2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
 .linkedin { background-color: #0077b5; }
 .email { background-color: #d44638; }
 .whatsapp { background-color: #25d366; }
 .github { background-color: #333; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilo para el modal con fondo tipo blueprint */
+.modal-blueprint {
+    background-color: #3273ff; /* Color de fondo tipo blueprint */
+    color: #ffffff; /* Texto blanco */
+    border: 0px solid #ffffff; /* Borde blanco */
+}
+
+/* Fondo con líneas tipo blueprint */
+.modal-blueprint::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px; /* Se repiten en ambas direcciones */
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* Líneas más gruesas cada X cuadros para el efecto técnico */
+.modal-blueprint::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.2) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.2) 2px, transparent 2px);
+    background-size: 200px 200px, 200px 200px; /* Líneas más gruesas cada 5 cuadros */
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.modal-dialog, .modal-content, .modal-header, .modal-body, .modal-footer {
+    background-color: transparent !important; /* Fondo transparente */  
+}
+
+.carousel-item img {
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.carousel-item img:hover {
+    transform: scale(1.05); /* Aumenta el tamaño al 105% */
+}
