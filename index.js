@@ -338,6 +338,40 @@ function copyEmail() {
         console.error("Error al copiar: ", err);
     });
 }
+$("#container-canvas").css("cursor", "pointer").on("click", function(event) {
+    // Borrar todos los tooltips creados previamente
+    $(".tooltip-temporal").fadeOut(300, function() {
+        $(this).remove();
+    });
+
+    // Obtener la posición del container canvas
+    const containerOffset = $("#container-canvas").offset();
+    const tooltipWidth = 120; // Ancho del tooltip
+
+    // Crear un tooltip temporal
+    const tooltip = $('<div class="tooltip-temporal"></div>') // Usar jQuery para crear el tooltip
+        .text('¡Bienvenido/a!')
+        .css({
+            position: 'absolute',
+            backgroundColor: '#333',
+            color: '#fff',
+            padding: '10px',
+            borderRadius: '5px',
+            zIndex: '1000',
+            top: `${containerOffset.top - 20}px`, // Colocar el tooltip en la misma posición vertical que el container
+            left: `${containerOffset.left + (event.clientX - containerOffset.left) - (tooltipWidth / 2)}px` // Centrar el tooltip horizontalmente respecto al clic
+        })
+        .hide() // Ocultar inicialmente
+        .appendTo('body') // Añadir al body
+        .fadeIn(300); // Mostrar con efecto fade in
+
+    // Desaparecer el tooltip después de 3 segundos
+    setTimeout(() => {
+        tooltip.fadeOut(300, function() {
+            $(this).remove(); // Eliminar después de fade out
+        });
+    }, 3000);
+});
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
