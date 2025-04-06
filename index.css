@@ -318,5 +318,24 @@ section #projects{
 }
 
 .carousel-item img:hover {
-    transform: scale(1.05); /* Aumenta el tamaño al 105% */
+    transform: scale(1.02); /* Aumenta el tamaño al 105% */
+}
+
+/* Estilo para los botones del carrusel */
+.carousel-control-prev,
+.carousel-control-next {
+    background-color: transparent; /* Fondo transparente */
+    border: none; /* Sin borde */
+    outline: none; /* Sin contorno */
+}
+
+/* Estilo para las flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 30px; /* Ancho de la flecha */
+    height: 30px; /* Alto de la flecha */
+    background-color: transparent; /* Fondo transparente */
+    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 50%; /* Bordes redondeados */
+    position: relative; /* Posicionamiento relativo para el pseudo-elemento */
 }

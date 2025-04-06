@@ -112,7 +112,27 @@ const projects = [
         technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "mysql", "azuredevops"],
         description: "Desarrollé una página web corporativa para XCF.",
         projectId: "pagina-xcf",
-        link: "https://www.xcf.com.mx/"
+        link: "https://www.xcf.com.mx/",
+        modalBody: `
+        <h4 class="mb-4 mt-4">¿De qué trata la página?</h4>
+        <p class="my-5">
+            Es un sitio web <strong>corporativo</strong> desarrollado para la empresa <strong>XCF</strong>, con el objetivo de presentar sus servicios y fortalecer su presencia en línea. Me encargué de implementar la estructura visual y funcional del sitio.
+        </p>
+        ${createCarousel([
+            '/assets/img/projects/pagina-xcf/1.png',
+            '/assets/img/projects/pagina-xcf/2.png',
+            '/assets/img/projects/pagina-xcf/3.png',
+            '/assets/img/projects/pagina-xcf/4.png',
+            '/assets/img/projects/pagina-xcf/5.png'
+            
+        ], 'carousel-pagina-xcf')}
+        <p class="my-5">
+            Utilicé <strong>Bootstrap</strong> y <strong>jQuery</strong> para la interfaz de usuario, logrando un diseño <strong>responsivo</strong> y funcional. Del lado del servidor, trabajé con <strong>C#</strong> y <strong>.NET Framework 4.8</strong> para conectar el sitio a una base de datos <strong>MySQL</strong>.
+        </p>
+        <p class="my-5">
+            Este proyecto me permitió fortalecer mis habilidades en <strong>desarrollo web corporativo</strong>, <strong>despliegue en la nube</strong> y en el uso de herramientas de desarrollo profesional como <strong>DevOps</strong>.
+        </p>
+    `
     },
     {
         title: "XSLAYCC",
@@ -124,32 +144,18 @@ const projects = [
         modalBody: `
             <h4 class="mb-4 mt-4">¿Qué es XSLAYCC?</h4>
             <p class="my-5">
-                Se trata de un sistema ERP integral diseñado para optimizar la gestión interna de la empresa. El ERP incluye diversos módulos que abarcan áreas críticas como compras, gestión de inventarios y administración de flotillas. Cada interfaz está diseñada con una lógica de negocio específica, incorporando reglas y procesos adaptados a las necesidades operativas de la organización, desde catálogos simples hasta flujos de trabajo más complejos, así como configuraciones personalizadas.
+                Es un sistema <strong>ERP</strong> diseñado para mejorar la <strong>gestión interna</strong> de la <strong>empresa</strong>, con módulos para <strong>compras</strong>, <strong>inventarios</strong> y <strong>administración de flotillas</strong>. Cada interfaz se adapta a las <strong>necesidades operativas</strong>, desde <strong>catálogos simples</strong> hasta <strong>flujos de trabajo más complejos</strong>.
             </p>
-            <div id="carouselXSLAYCC" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/assets/img/projects/xslaycc/1.png" class="d-block w-100" alt="Imagen 1" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/1.png')">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/assets/img/projects/xslaycc/2.png" class="d-block w-100" alt="Imagen 2" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/2.png')">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/assets/img/projects/xslaycc/3.png" class="d-block w-100" alt="Imagen 3" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/3.png')">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/assets/img/projects/xslaycc/4.png" class="d-block w-100" alt="Imagen 4" style="height: 40vh; object-fit: contain;" onclick="openImageModal('/assets/img/projects/xslaycc/4.png')">
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselXSLAYCC" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselXSLAYCC" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
+            ${createCarousel([
+                '/assets/img/projects/xslaycc/5.png',
+                '/assets/img/projects/xslaycc/1.png',
+                '/assets/img/projects/xslaycc/2.png',
+                '/assets/img/projects/xslaycc/3.png',
+                '/assets/img/projects/xslaycc/4.png'
+            ], 'carousel-xslaycc')}
+            <p class="my-5">
+                Este sistema <strong>ERP</strong> ha sido desarrollado utilizando <strong>MVC .Net Core 8</strong> y se compone de <strong>tres proyectos</strong>: <strong>WEB</strong>, <strong>API</strong> y <strong>CLASSES</strong>. Para garantizar la seguridad en la transmisión de datos, se implementó encriptación AES para el envío de información entre la <strong>WEB</strong> y la <strong>API</strong>. Además, se han establecido capas de seguridad en las <strong>CLASSES</strong> para proteger la lógica de negocio.
+            </p>
         `
     }
 ];
@@ -415,4 +421,44 @@ function openImageModal(imageSrc) {
     modalImage.src = imageSrc;
     const modal = new bootstrap.Modal(imageModal);
     modal.show();
+}
+
+function createCarousel(images, carouselId) {
+    // Comienza a construir el HTML del carrusel
+    let carouselHTML = `
+        <div id="${carouselId}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+            <div class="carousel-inner">
+    `;
+
+    // Agregar las imágenes al carrusel
+    images.forEach((image, index) => {
+        carouselHTML += `
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="${image}" class="d-block w-100" alt="Imagen ${index + 1}" style="height: 40vh; object-fit: contain;" onclick="openImageModal('${image}')">
+            </div>
+        `;
+    });
+
+    // Cerrar el HTML del carrusel
+    carouselHTML += `
+            </div>
+    `;
+
+    // Agregar botones solo si hay más de una imagen
+    if (images.length > 1) {
+        carouselHTML += `
+            <button class="carousel-control-prev" type="button" data-bs-target="#${carouselId}" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#${carouselId}" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+        `;
+    }
+
+    carouselHTML += `
+        </div>
+    `;
+
+    return carouselHTML; // Devuelve el HTML completo del carrusel
 }
