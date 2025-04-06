@@ -321,6 +321,7 @@ section #projects{
     transform: scale(1.02); /* Aumenta el tamaño al 105% */
 }
 
+
 /* Estilo para los botones del carrusel */
 .carousel-control-prev,
 .carousel-control-next {
@@ -338,4 +339,57 @@ section #projects{
     border: 2px solid #fff; /* Borde blanco */
     border-radius: 50%; /* Bordes redondeados */
     position: relative; /* Posicionamiento relativo para el pseudo-elemento */
+}
+
+
+
+.cursor-dot {
+    position: fixed;
+    width: 15px; /* Aumenta el ancho de la bolita */
+    height: 15px; /* Aumenta el alto de la bolita */
+    background: transparent; /* Sin relleno */
+    border: 2px solid #007bff; /* Color primario de Bootstrap (azul) */
+    border-radius: 50%; /* Bordes redondeados para hacerla circular */
+    pointer-events: none; /* Para que no interfiera con otros elementos */
+    transform: translate(-50%, -50%); /* Centrar la bolita en el cursor */
+    z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.cursor-dot.white {
+    border: 2px solid #ffffff; /* Color blanco */
+}
+
+
+
+.card-project-image{
+    max-height: 200px;
+    object-fit: cover;
+    object-position: top;
+}
+
+
+.image-container {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    height: 200px; /* Altura fija para el contenedor */
+    overflow: hidden; /* Oculta la parte de la imagen que se sale del contenedor */
+    position: relative; /* Permite posicionar la imagen dentro del contenedor */
+    display: flex; /* Usar flexbox para centrar la imagen */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    border-radius: 10px;
+}
+
+.rotated-image {
+    transform: rotate(0deg);
+    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+    height: auto; /* Mantiene la altura proporcional */
+    position: absolute; /* Permite mover la imagen dentro del contenedor */
+    scale: 1; 
+    filter: grayscale(100%); /* Aplica filtro blanco y negro */
+    transition: filter 0.5s ease, transform 0.5s ease; /* Transición suave para el filtro y la transformación */
+}
+
+.project-item:hover .rotated-image {
+    filter: none; /* Quita el filtro al hacer hover en project-item */
+    transform: rotate(-3deg) scale(1.1); /* Restaura la rotación y aumenta la escala al hacer hover */
 }

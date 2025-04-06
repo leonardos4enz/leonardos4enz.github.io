@@ -43,24 +43,35 @@ const initProjects = () => {
     let projectHTML = projects.reverse().map(project => {
         let techIcons = project.technologies.map(tech => 
             `<i class='devicon-${tech}-plain colored'></i>`).join(" ");
-    
+        
+        const imageHTML = `
+            <div class="image-container mb-3">
+                <img src="/assets/img/projects/${project.projectId}/1.png" class="card-img-top card-project-image rotated-image" alt="${project.title}">
+            </div>
+        `
+
         return `
-            <div class="col-12 col-sm-12 col-md-5 col-lg-3 project-item">
-                <div class="glasmorphism-bg p-4 rounded-5 d-flex flex-column h-100">
-                    <h4 class="pt-2 project-name">${project.title}</h4>
-                    <p class="text-muted"><small>${project.year}</small></p>
-                    <p>${techIcons}</p>
-                    <p class="flex-grow-1">${project.description}</p>
-                    <div class="d-flex justify-content-around mt-auto">
-                        <a href="${project.link}" class="btn btn-outline-dark border-dashed" target="_blank" style="padding: 0.5rem 1.5rem;">
-                            <i class="fas fa-eye"></i> Ver
-                        </a>
-                        ${project.modalBody ? `
-                        <button type="button" class="btn btn-outline-dark border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
-                            <i class="fas fa-question-circle"></i> Arquitectura
-                        </button>
-                        ` : ''}
-                    </div>  
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 project-item">
+                <div class="glasmorphism-bg p-0 m-0 d-flex flex-column h-100">
+                    <div class="p-4">
+                        <h4 class="pt-2 project-name">${project.title}</h4>
+                        <p class="text-muted"><small>${project.year}</small></p>
+                        <p>${techIcons}</p>
+                        <p class="flex-grow-1">${project.description}</p>
+                        ${imageHTML} 
+                        <div class="d-flex justify-content-between">
+
+                            ${project.modalBody ? `
+                            <button type="button" class="btn btn-outline-dark border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
+                                <i class="fas fa-question-circle"></i> Arquitectura
+                            </button>
+                            ` : ''}
+
+                            <a href="${project.link}" class="btn btn-outline-dark border-dashed" target="_blank" style="">
+                                <i class="fas fa-eye"></i> Ver
+                            </a>
+                        </div>  
+                    </div>
                 </div>
             </div>`;
     }).join("");
@@ -119,6 +130,7 @@ const projects = [
             Es un sitio web <strong>corporativo</strong> desarrollado para la empresa <strong>XCF</strong>, con el objetivo de presentar sus servicios y fortalecer su presencia en línea. Me encargué de implementar la estructura visual y funcional del sitio.
         </p>
         ${createCarousel([
+            '/assets/img/projects/pagina-xcf/0.png',
             '/assets/img/projects/pagina-xcf/1.png',
             '/assets/img/projects/pagina-xcf/2.png',
             '/assets/img/projects/pagina-xcf/3.png',
@@ -147,11 +159,12 @@ const projects = [
                 Es un sistema <strong>ERP</strong> diseñado para mejorar la <strong>gestión interna</strong> de la <strong>empresa</strong>, con módulos para <strong>compras</strong>, <strong>inventarios</strong> y <strong>administración de flotillas</strong>. Cada interfaz se adapta a las <strong>necesidades operativas</strong>, desde <strong>catálogos simples</strong> hasta <strong>flujos de trabajo más complejos</strong>.
             </p>
             ${createCarousel([
-                '/assets/img/projects/xslaycc/5.png',
+                '/assets/img/projects/xslaycc/0.png',
                 '/assets/img/projects/xslaycc/1.png',
                 '/assets/img/projects/xslaycc/2.png',
                 '/assets/img/projects/xslaycc/3.png',
-                '/assets/img/projects/xslaycc/4.png'
+                '/assets/img/projects/xslaycc/4.png',
+                '/assets/img/projects/xslaycc/5.png'
             ], 'carousel-xslaycc')}
             <p class="my-5">
                 Este sistema <strong>ERP</strong> ha sido desarrollado utilizando <strong>MVC .Net Core 8</strong> y se compone de <strong>tres proyectos</strong>: <strong>WEB</strong>, <strong>API</strong> y <strong>CLASSES</strong>. Para garantizar la seguridad en la transmisión de datos, se implementó encriptación AES para el envío de información entre la <strong>WEB</strong> y la <strong>API</strong>. Además, se han establecido capas de seguridad en las <strong>CLASSES</strong> para proteger la lógica de negocio.
@@ -344,40 +357,6 @@ function copyEmail() {
         console.error("Error al copiar: ", err);
     });
 }
-$("#container-canvas").css("cursor", "pointer").on("click", function(event) {
-    // Borrar todos los tooltips creados previamente
-    $(".tooltip-temporal").fadeOut(300, function() {
-        $(this).remove();
-    });
-
-    // Obtener la posición del container canvas
-    const containerOffset = $("#container-canvas").offset();
-    const tooltipWidth = 120; // Ancho del tooltip
-
-    // Crear un tooltip temporal
-    const tooltip = $('<div class="tooltip-temporal"></div>') // Usar jQuery para crear el tooltip
-        .text('¡Bienvenido/a!')
-        .css({
-            position: 'absolute',
-            backgroundColor: '#333',
-            color: '#fff',
-            padding: '10px',
-            borderRadius: '5px',
-            zIndex: '1000',
-            top: `${containerOffset.top - 20}px`, // Colocar el tooltip en la misma posición vertical que el container
-            left: `${containerOffset.left + (event.clientX - containerOffset.left) - (tooltipWidth / 2)}px` // Centrar el tooltip horizontalmente respecto al clic
-        })
-        .hide() // Ocultar inicialmente
-        .appendTo('body') // Añadir al body
-        .fadeIn(300); // Mostrar con efecto fade in
-
-    // Desaparecer el tooltip después de 3 segundos
-    setTimeout(() => {
-        tooltip.fadeOut(300, function() {
-            $(this).remove(); // Eliminar después de fade out
-        });
-    }, 3000);
-});
 
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text).then(() => {
@@ -462,3 +441,45 @@ function createCarousel(images, carouselId) {
 
     return carouselHTML; // Devuelve el HTML completo del carrusel
 }
+
+
+const cursorDot = document.getElementById('cursor-dot');
+let mouseX = 0;
+let mouseY = 0;
+let dotX = 0; // Posición actual de la bolita
+let dotY = 0;
+
+// Captura la posición del mouse
+document.addEventListener('mousemove', function(e) {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+});
+
+// Función para mover la bolita con un retraso
+function moveCursorDot() {
+    // Suavizar el movimiento
+    dotX += (mouseX - dotX) * 0.3; // Ajusta el factor para más o menos suavizado
+    dotY += (mouseY - dotY) * 0.3; // Ajusta el factor para más o menos suavizado
+
+    cursorDot.style.left = `${dotX}px`;
+    cursorDot.style.top = `${dotY}px`;
+
+    requestAnimationFrame(moveCursorDot); // Llama a la función en el siguiente frame
+}
+
+// Inicia el movimiento
+moveCursorDot();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
