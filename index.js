@@ -45,7 +45,7 @@ const initProjects = () => {
             `<i class='devicon-${tech}-plain colored'></i>`).join(" ");
         
         const imageHTML = `
-            <div class="image-container mb-3">
+            <div class="image-container mb-3" style="cursor: ${project.modalBody ? 'pointer' : 'default'};" onclick="${project.modalBody ? `showProjectDetails('${project.title}', \`${project.projectId}\`); $('#projectModal').modal('show');` : ''}">
                 <img src="/assets/img/projects/${project.projectId}/1.png" class="card-img-top card-project-image rotated-image" alt="${project.title}">
             </div>
         `
@@ -61,15 +61,17 @@ const initProjects = () => {
                         ${imageHTML} 
                         <div class="d-flex justify-content-between">
 
+                            <a href="${project.link}" class="btn btn-outline-dark border-dashed" target="_blank" style="">
+                                <i class="fas fa-eye"></i> Ver
+                            </a>
+
+                            
                             ${project.modalBody ? `
                             <button type="button" class="btn btn-outline-dark border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
                                 <i class="fas fa-question-circle"></i> Arquitectura
                             </button>
                             ` : ''}
 
-                            <a href="${project.link}" class="btn btn-outline-dark border-dashed" target="_blank" style="">
-                                <i class="fas fa-eye"></i> Ver
-                            </a>
                         </div>  
                     </div>
                 </div>
