@@ -1,5 +1,7 @@
 $(document).ready(function () {
     gsap.registerPlugin(ScrollTrigger);
+    
+    animacionTexto();
     initTimeline();
     initTecnologias();
     initProjects();
@@ -89,7 +91,7 @@ const initProjects = () => {
             ease: "power3.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 85%",
+                start: "top 100%",
                 toggleActions: "play none none none",
             }
         });
@@ -474,6 +476,22 @@ moveCursorDot();
 
 
 
+const animacionTexto = () => {
+    // Envolver cada letra en un span
+    var textWrapper = document.querySelector('.ml2');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/(\S+)(\s*)/g, "<span class='letter'>$1</span>$2");
+
+    anime.timeline()
+      .add({
+        targets: '.ml2 .letter',
+        scale: [4, 1],
+        opacity: [0, 1],
+        translateZ: 0,
+        easing: "easeOutExpo",
+        duration: 1950,
+        delay: (el, i) => 70 * i
+      });
+}
 
 
 

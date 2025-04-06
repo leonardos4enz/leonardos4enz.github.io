@@ -391,5 +391,20 @@ section #projects{
 
 .project-item:hover .rotated-image {
     filter: none; /* Quita el filtro al hacer hover en project-item */
-    transform: rotate(-3deg) scale(1.1); /* Restaura la rotación y aumenta la escala al hacer hover */
+    transform: scale(1.02); /* Restaura la rotación y aumenta la escala al hacer hover */
 }
+
+
+
+
+
+
+.ml2 {
+    font-weight: 900;
+    font-size: 3.5em;
+  }
+  
+  .ml2 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
