@@ -53,7 +53,7 @@ const initProjects = () => {
         `
 
         return `
-            <div class="col-12 col-sm-12 col-md-12 col-lg-5 project-item">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-5 project-item mb-4">
                 <div class="glasmorphism-bg p-0 m-0 d-flex flex-column h-100">
                     <div class="p-4">
                         <h4 class="pt-2 project-name">${project.title}</h4>
@@ -167,8 +167,7 @@ const projects = [
                 '/assets/img/projects/xslaycc/1.png',
                 '/assets/img/projects/xslaycc/2.png',
                 '/assets/img/projects/xslaycc/3.png',
-                '/assets/img/projects/xslaycc/4.png',
-                '/assets/img/projects/xslaycc/5.png'
+                '/assets/img/projects/xslaycc/4.png'
             ], 'carousel-xslaycc')}
             <p class="my-5">
                 Este sistema <strong>ERP</strong> ha sido desarrollado utilizando <strong>MVC .Net Core 8</strong> y se compone de <strong>tres proyectos</strong>: <strong>WEB</strong>, <strong>API</strong> y <strong>CLASSES</strong>. Para garantizar la seguridad en la transmisión de datos, se implementó encriptación AES para el envío de información entre la <strong>WEB</strong> y la <strong>API</strong>. Además, se han establecido capas de seguridad en las <strong>CLASSES</strong> para proteger la lógica de negocio.
@@ -468,6 +467,11 @@ function moveCursorDot() {
     cursorDot.style.left = `${dotX}px`;
     cursorDot.style.top = `${dotY}px`;
 
+    // Verifica si no está en un celular
+    if (window.innerWidth > 768) { // Ajusta el tamaño según sea necesario
+        cursorDot.style.borderRadius = '50%'; // Asegúrate de que sea un punto
+    }
+
     requestAnimationFrame(moveCursorDot); // Llama a la función en el siguiente frame
 }
 
@@ -492,6 +496,17 @@ const animacionTexto = () => {
         delay: (el, i) => 70 * i
       });
 }
+
+// Cambiar el color del cursor al abrir el modal
+const projectModal = document.getElementById('projectModal');
+projectModal.addEventListener('show.bs.modal', function () {
+    cursorDot.classList.add('white'); // Cambia a blanco
+});
+
+// Restablecer el color del cursor al cerrar el modal
+projectModal.addEventListener('hide.bs.modal', function () {
+    cursorDot.classList.remove('white'); // Regresa a azul
+});
 
 
 
