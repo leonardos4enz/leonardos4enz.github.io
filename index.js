@@ -91,8 +91,8 @@ const initProjects = () => {
             ease: "power3.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 100%",
-                toggleActions: "play none none none",
+                start: "top 60%", // La animación inicia cuando el 80% del elemento entra en la vista
+                toggleActions: "play none none none" // La animación solo se ejecuta una vez
             }
         });
     });
@@ -123,7 +123,7 @@ const projects = [
     },
     {
         title: "Página XCF",
-        year: "2023",
+        year: "2023 ",
         technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "mysql", "azuredevops"],
         description: "Desarrollé una página web corporativa para XCF.",
         projectId: "pagina-xcf",
@@ -181,7 +181,7 @@ const projects = [
 const initTimeline = () => {
     let timelineHTML = timelineEvents.map((event, index) => {
         let techBadges = event.technologies.map(tech => 
-            `<span class="badge bg-primary">${tech}</span>`
+            `<span class="badge bg-secondary">${tech}</span>`
         ).join(" ");
 
         return `
@@ -293,13 +293,13 @@ const initTecnologias = () => {
     let techHTML = uniqueTechnologies.map(tech => {
         let iconClass = deviconMap[tech] || ""; // Si no hay ícono, queda vacío
         return `
-            <span class="badge tech-item bg-secondary text-white p-2 m-2 mb-4">
+            <span class="badge tech-item bg-secondary text-white p-2 m-3 mb-5">
                 ${iconClass ? `<i class="${iconClass}"></i> ` : ""}${tech}
             </span>
         `;
     }).join(" ");
 
-    $("#tecnologias-container").html(techHTML);
+    $("#tecnologias-container").html(techHTML).addClass("text-center");
 
     // Animación con GSAP y ScrollTrigger
     gsap.utils.toArray(".tech-item").forEach((item, index) => {
