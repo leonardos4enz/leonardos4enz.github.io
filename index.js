@@ -1,6 +1,6 @@
 $(document).ready(function () {
     gsap.registerPlugin(ScrollTrigger);
-    
+
     animacionTexto();
     initTimeline();
     initTecnologias();
@@ -10,46 +10,35 @@ $(document).ready(function () {
     let fechaInicioLaboral = "2023-04-03";
     $("#experience-years").text(calcularExperiencia(fechaInicioLaboral));
 
-    const riveFile = '/assets/rive/cat_2.riv'; // Asegúrate de que esta ruta sea correcta
+    const riveFile = '/assets/rive/cat_2.riv';
 
     const r = new rive.Rive({
         src: riveFile,
-        // OR the path to a discoverable and public Rive asset
-        // src: '/public/example.riv',
         canvas: document.getElementById("canvas"),
         autoplay: true,
-        // artboard: "Arboard", // Optional. If not supplied the default is selected
         stateMachines: "State Machine 1",
         onLoad: () => {
             r.resizeDrawingSurfaceToCanvas();
-
-            // Animación de fade in para el gato
-            gsap.fromTo(r.canvas, 
-                { opacity: 0 }, // Comienza completamente transparente
-                { opacity: 1, duration: 1 } // Termina completamente visible
-            );
+            gsap.fromTo(r.canvas, { opacity: 0 }, { opacity: 1, duration: 1 });
         },
     });
 
     window.addEventListener("resize", () => {
         r.resizeDrawingSurfaceToCanvas();
     });
-    
-    fetch('/api/nasa')
-    .then(res => res.json())
-    .then(data => {
-      document.body.innerHTML += `
-        <h1>${data.title}</h1>
-        <p><em>${data.date}</em></p>
-        <img src="${data.url}" alt="${data.title}" style="max-width:100%; border-radius: 10px;" />
-        <p>${data.explanation}</p>
-      `;
-    })
-    .catch(error => {
-      console.error('Error al obtener la imagen de la NASA:', error);
-      document.body.innerHTML += `<p>Error al cargar la imagen de la NASA 🚀</p>`;
-    });
+
+    // Llamada async a la API de NASA
+    (async () => {
+        try {
+            const res = await fetch('/api/nasa');
+            const data = await res.json();
+            console.log('📡 Datos de la NASA APOD (async):', data);
+        } catch (error) {
+            console.error('❌ Error async al obtener datos de la NASA:', error);
+        }
+    })();
 });
+
 
 
 //#region Projects
