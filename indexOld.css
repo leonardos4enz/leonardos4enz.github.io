@@ -140,9 +140,6 @@ button:focus, button:active {
     border-radius: 0 0 1rem 1rem !important;
 }
 
-.card-img, .card-img-top {
-    border-radius: 1rem 1rem 0 0 !important;
-}
 
 .btn-rounded{
     padding-left: 10px;

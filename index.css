@@ -8,8 +8,8 @@
     overflow-y: hidden;
     min-height: 100vh;
     padding-bottom: 100px;
+    padding-top: 100px;
 }
-
 
 /* Fondo con líneas tipo blueprint */
 .contenedor-principal::before {
@@ -38,11 +38,10 @@
     background-image: 
         linear-gradient(rgba(0, 0, 0, 0.08) 2px, transparent 2px),
         linear-gradient(90deg, rgba(0, 0, 0, 0.08) 2px, transparent 2px);
-        background-size: 200px 200px, 200px 200px; /* Líneas más gruesas cada 5 cuadros */
+    background-size: 200px 200px, 200px 200px; /* Líneas más gruesas cada 5 cuadros */
     z-index: -1;
     opacity: 0.5;
 }
-
 
 .blueprint-border {
     position: relative;
@@ -81,9 +80,7 @@
     }
 }
 
-
-
-.portfolio-nombre{
+.portfolio-nombre {
     font-size: 80px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -92,34 +89,29 @@
 section {
     margin: 0px;
     padding: 0px;
-    padding-top: 40px; /* Para tamaño de celular */
 }
 
-@media (min-width: 576px) {
-    section {
-        padding-top: 100px; /* Para tamaños mayores a celular */
-    }
-}
 
-section .section-title{
+section .section-title {
     font-size: 50px;
     font-weight: 700;
     display: block;
     margin-bottom: 40px;
     color: #4285F4;
+    padding: 70px 0; /* Añadido padding superior e inferior de 40px */
 }
 
-section #projects{
+section #projects {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.glasmorphism-bg{
-    background: rgba( 255, 255, 255, 0.25 );
+.glasmorphism-bg {
+    background: rgba(255, 255, 255, 0.25);
     box-shadow: 0px 0px 10px 1px #00000015;
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.653);
     display: flex;
@@ -133,19 +125,12 @@ section #projects{
     justify-content: center;
     gap: 16px; /* Espaciado horizontal */
 }
-
-.project-name{
+    
+.project-name {
     font-weight: 700;
+    letter-spacing: 0;
+    margin-bottom: 0px;
 }
-
-.border-dashed{
-    border: 1px dashed rgba(0, 0, 0, 0.653);
-}
-
-
-
-
-
 
 
 
@@ -196,40 +181,18 @@ section #projects{
 
 .timeline-content {
     background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: 15px;
     margin-left: 40px;
-    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 14px;
-    backdrop-filter: blur( 2px );
-    -webkit-backdrop-filter: blur( 2px );
+    box-shadow: 0px 0px 10px 2px #00000015;
+    padding: 20px 20px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    transition: transform 0.3s;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    .timeline-content:hover {
+        transform: scale(1.01);
+    }
 
 .floating-buttons {
     position: fixed;
@@ -240,7 +203,8 @@ section #projects{
     gap: 10px;
 }
 
-.floating-buttons a, .floating-buttons button {
+.floating-buttons a,
+.floating-buttons button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -253,22 +217,21 @@ section #projects{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.linkedin { background-color: #0077b5; }
-.email { background-color: #d44638; }
-.whatsapp { background-color: #25d366; }
-.github { background-color: #333; }
+.linkedin {
+    background-color: #0077b5;
+}
 
+.email {
+    background-color: #d44638;
+}
 
+.whatsapp {
+    background-color: #25d366;
+}
 
-
-
-
-
-
-
-
-
-
+.github {
+    background-color: #333;
+}
 
 /* Estilo para el modal con fondo tipo blueprint */
 .modal-blueprint {
@@ -309,7 +272,11 @@ section #projects{
     opacity: 0.3;
 }
 
-.modal-dialog, .modal-content, .modal-header, .modal-body, .modal-footer {
+.modal-dialog,
+.modal-content,
+.modal-header,
+.modal-body,
+.modal-footer {
     background-color: transparent !important; /* Fondo transparente */  
 }
 
@@ -320,7 +287,6 @@ section #projects{
 .carousel-item img:hover {
     transform: scale(1.02); /* Aumenta el tamaño al 105% */
 }
-
 
 /* Estilo para los botones del carrusel */
 .carousel-control-prev,
@@ -339,9 +305,7 @@ section #projects{
     border: 2px solid #fff; /* Borde blanco */
     border-radius: 50%; /* Bordes redondeados */
     position: relative; /* Posicionamiento relativo para el pseudo-elemento */
-}
-
-
+}   
 
 .cursor-dot {
     position: fixed;
@@ -359,52 +323,43 @@ section #projects{
     border: 2px solid #ffffff; /* Color blanco */
 }
 
-
-
-.card-project-image{
-    max-height: 200px;
-    object-fit: cover;
-    object-position: top;
+.cursor-dot.square {
+    background-color: #007bff;
+    opacity: 0.8;
 }
-
-
-.image-container {
-    width: 100%; /* Ajusta el ancho al 100% del contenedor */
-    height: 200px; /* Altura fija para el contenedor */
-    overflow: hidden; /* Oculta la parte de la imagen que se sale del contenedor */
-    position: relative; /* Permite posicionar la imagen dentro del contenedor */
-    display: flex; /* Usar flexbox para centrar la imagen */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    border-radius: 10px;
-}
-
-.rotated-image {
-    transform: rotate(0deg);
-    width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-    height: auto; /* Mantiene la altura proporcional */
-    position: absolute; /* Permite mover la imagen dentro del contenedor */
-    scale: 1; 
-    filter: grayscale(100%); /* Aplica filtro blanco y negro */
-    transition: filter 0.5s ease, transform 0.5s ease; /* Transición suave para el filtro y la transformación */
-}
-
-.project-item:hover .rotated-image {
-    filter: none; /* Quita el filtro al hacer hover en project-item */
-    transform: scale(1.02); /* Restaura la rotación y aumenta la escala al hacer hover */
-}
-
-
-
-
-
 
 .ml2 {
     font-weight: 900;
     font-size: 3.5em;
-  }
-  
-  .ml2 .letter {
+}
+
+.ml2 .letter {
     display: inline-block;
     line-height: 1em;
-  }
+}
+
+.card-img-top {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    filter: grayscale(100%); /* Escala de grises por defecto */
+    transition: filter 0.3s; /* Transición suave */
+    height: 175px;
+    object-fit: cover;
+}
+
+.card {
+    transition: filter 0.3s, transform 0.3s; /* Transición suave para el card */
+    border-radius: 30px;
+}
+
+.card:hover {
+    transform: scale(1.01); /* Aumenta el tamaño de la card al hacer hover */
+}
+
+.card:hover .card-img-top {
+    filter: grayscale(0%); /* Color normal al hacer hover sobre el card */
+}
+
+.border-dashed {
+    border-radius: 100px;
+}

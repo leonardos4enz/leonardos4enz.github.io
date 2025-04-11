@@ -38,7 +38,7 @@
     <meta name="twitter:image" content="/assets/img/preview.png" />
 </head>
 <body class="">
-    <div class=" contenedor-principal">
+    <div class="contenedor-principal">
         <div class="container">
 
             <!-- Sección "Sobre mí" -->
@@ -73,7 +73,7 @@
 
             <section id="timeline text-center" class="">
                 <div class="d-flex row">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-5">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                         <h2 class="section-title text-center">Línea de aprendizaje</h2>
                         <div id="section-timeline-container d-flex">
                             <div class="timeline" id="timeline-container"></div>
@@ -81,14 +81,15 @@
                     </div>
                     <div class="col-12 col-sm-12 col-md-12 col-lg-6">
                         <h2 class="section-title text-center">Conocimiento de tecnologías</h2>
-                        <div id="tecnologias-container"></div>
+                        <div class="d-flex flex-column justify-content-between">
+                            <div id="tecnologias-container"></div>
+                            <div id="container-canvas" class="d-flex justify-content-center align-items-center mt-2 mt-md-5" >
+                                <canvas id="canvas" style="height: 200px;" title="miaúsculus"></canvas>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
-
-            <div id="container-canvas" class="d-flex justify-content-center align-items-center mt-2 mt-md-5" >
-                <canvas id="canvas" style="height: 200px;" title="miaúsculus"></canvas>
-            </div>
             
             <section id="projects" class="">
                 <h2 class="section-title">Proyectos</h2>

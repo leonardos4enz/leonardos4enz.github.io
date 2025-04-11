@@ -47,34 +47,33 @@ const initProjects = () => {
             `<i class='devicon-${tech}-plain colored'></i>`).join(" ");
         
         const imageHTML = `
-            <div class="image-container mb-3" style="cursor: ${project.modalBody ? 'pointer' : 'default'};" onclick="${project.modalBody ? `showProjectDetails('${project.title}', \`${project.projectId}\`); $('#projectModal').modal('show');` : ''}">
-                <img src="/assets/img/projects/${project.projectId}/1.png" class="card-img-top card-project-image rotated-image" alt="${project.title}">
+            <div class="image-container" style="cursor: ${project.modalBody ? 'pointer' : 'default'};" onclick="${project.modalBody ? `showProjectDetails('${project.title}', \`${project.projectId}\`); $('#projectModal').modal('show');` : ''}">
+                <img src="/assets/img/projects/${project.projectId}/1.png" class="card-img-top" alt="${project.title}">
             </div>
-        `
+        `;
 
         return `
             <div class="col-12 col-sm-12 col-md-12 col-lg-5 project-item mb-4">
-                <div class="glasmorphism-bg p-0 m-0 d-flex flex-column h-100">
-                    <div class="p-4">
-                        <h4 class="pt-2 project-name">${project.title}</h4>
-                        <p class="text-muted"><small>${project.year}</small></p>
-                        <p>${techIcons}</p>
-                        <p class="flex-grow-1">${project.description}</p>
-                        ${imageHTML} 
-                        <div class="d-flex justify-content-between">
-
-                            <a href="${project.link}" class="btn btn-outline-dark border-dashed" target="_blank" style="">
-                                <i class="fas fa-eye"></i> Ver
+                <div class="card glasmorphism-bg p-0 m-0 d-flex flex-column h-100 border-0">
+                    ${imageHTML} 
+                    <div class="card-body p-4 d-flex flex-column">
+                        <div class="card-body-content pb-3 flex-grow-1">
+                            <h4 class="pt-2 project-name">${project.title}</h4>
+                            <p class="text-muted"><small class="me-2">${project.year}</small></p>
+                            <p>${project.description}</p>
+                            <p>${techIcons}</p>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-3">
+                            <a href="${project.link}" class="btn btn-outline-dark rounded-pill" target="_blank">
+                                <i class="fas fa-arrow-right"></i> Ver
                             </a>
-
-                            
                             ${project.modalBody ? `
-                            <button type="button" class="btn btn-outline-dark border-dashed" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
-                                <i class="fas fa-question-circle"></i> Arquitectura
+                            <button type="button" class="btn btn-outline-dark rounded-pill" data-bs-toggle="modal" data-bs-target="#projectModal" onclick="showProjectDetails('${project.title}', \`${project.projectId}\`)">
+                                <i class="fas fa-paper-plane"></i> Arquitectura
                             </button>
                             ` : ''}
-
-                        </div>  
+                        </div> 
                     </div>
                 </div>
             </div>`;
@@ -91,12 +90,12 @@ const initProjects = () => {
             ease: "power3.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 60%", // La animación inicia cuando el 80% del elemento entra en la vista
+                start: "top 85%", // La animación inicia cuando el 80% del elemento entra en la vista
                 toggleActions: "play none none none" // La animación solo se ejecuta una vez
             }
         });
     });
-};
+}; 
 
 // Función para mostrar detalles en el modal
 function showProjectDetails(title, projectId) {
@@ -117,7 +116,7 @@ const projects = [
         title: "JARTICS",
         year: "2023",
         technologies: ["html5", "css3", "javascript", "git"],
-        description: "Página Web para ATICS de estudiantes del área de la salud.",
+        description: "Facilité el acceso a información relevante para los estudiantes del área de la salud, mejorando su aprendizaje.",
         projectId: "jartics",
         link: "https://jartics.github.io"
     },
@@ -125,7 +124,7 @@ const projects = [
         title: "Página XCF",
         year: "2023 ",
         technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "mysql", "azuredevops"],
-        description: "Desarrollé una página web corporativa para XCF.",
+        description: "Desarrollé una página web corporativa para XCF, para presentar sus servicios y fortalecer su presencia en línea.",
         projectId: "pagina-xcf",
         link: "https://www.xcf.com.mx/",
         modalBody: `
@@ -140,7 +139,6 @@ const projects = [
             '/assets/img/projects/pagina-xcf/3.png',
             '/assets/img/projects/pagina-xcf/4.png',
             '/assets/img/projects/pagina-xcf/5.png'
-            
         ], 'carousel-pagina-xcf')}
         <p class="my-5">
             Utilicé <strong>Bootstrap</strong> y <strong>jQuery</strong> para la interfaz de usuario, logrando un diseño <strong>responsivo</strong> y funcional. Del lado del servidor, trabajé con <strong>C#</strong> y <strong>.NET Framework 4.8</strong> para conectar el sitio a una base de datos <strong>MySQL</strong>.
@@ -154,7 +152,7 @@ const projects = [
         title: "XSLAYCC",
         year: "2024-2025",
         technologies: ["bootstrap", "jquery", "csharp", "dotnetcore", "microsoftsqlserver", "mysql", "azuredevops", "git"],
-        description: "Diseñé y desarrollé un ERP para los clientes internos de XCF.",
+        description: "Desarrollé un ERP que optimizó los procesos internos de XCF, mejorando la eficiencia.",
         projectId: "xslaycc",
         link: "https://www.xcf.com.mx/xslaycc",
         modalBody: `
@@ -193,7 +191,7 @@ const initTimeline = () => {
                         ${event.title} 
                         <small class="text-muted fw-light fs-6">${event.date}</small>
                     </div>
-                    <p class="mb-0 pb-0">${event.description}</p>
+                    <p class="p-0 mt-2 mb-3">${event.description}</p>
                     <div class="tech-tags d-flex flex-wrap gap-2 my-2">${techBadges}</div>
                 </div>
             </div>`;
@@ -293,7 +291,7 @@ const initTecnologias = () => {
     let techHTML = uniqueTechnologies.map(tech => {
         let iconClass = deviconMap[tech] || ""; // Si no hay ícono, queda vacío
         return `
-            <span class="badge tech-item bg-secondary text-white p-2 m-3 mb-5">
+            <span class="badge tech-item bg-secondary text-white p-2 m-3 mb-4">
                 ${iconClass ? `<i class="${iconClass}"></i> ` : ""}${tech}
             </span>
         `;
@@ -311,7 +309,7 @@ const initTecnologias = () => {
             delay: index * 0.1, // Pequeña diferencia de tiempo entre cada tecnología
             scrollTrigger: {
                 trigger: item,
-                start: "top 85%", // Se activa cuando el 85% del elemento entra en la vista
+                start: "top 90%", // Se activa cuando el 85% del elemento entra en la vista
                 toggleActions: "play none none none"
             }
         });
@@ -456,6 +454,14 @@ let dotY = 0;
 document.addEventListener('mousemove', function(e) {
     mouseX = e.clientX;
     mouseY = e.clientY;
+
+    // Verifica si el puntero está sobre un elemento con cursor: pointer
+    const element = document.elementFromPoint(mouseX, mouseY);
+    if (element && getComputedStyle(element).cursor === 'pointer') {
+        cursorDot.classList.add('square'); // Cambia a triángulo
+    } else {
+        cursorDot.classList.remove('square'); // Regresa a punto
+    }
 });
 
 // Función para mover la bolita con un retraso
