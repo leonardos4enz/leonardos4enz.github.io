@@ -53,7 +53,7 @@ const initProjects = () => {
         `;
 
         return `
-            <div class="col-12 col-sm-12 col-md-12 col-lg-5 project-item mb-4">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 project-item ps-2 pe-2 mb-4">
                 <div class="card glasmorphism-bg p-0 m-0 d-flex flex-column h-100 border-0">
                     ${imageHTML} 
                     <div class="card-body p-4 d-flex flex-column">
