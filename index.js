@@ -35,7 +35,20 @@ $(document).ready(function () {
         r.resizeDrawingSurfaceToCanvas();
     });
     
-    
+    fetch('/api/nasa')
+    .then(res => res.json())
+    .then(data => {
+      document.body.innerHTML += `
+        <h1>${data.title}</h1>
+        <p><em>${data.date}</em></p>
+        <img src="${data.url}" alt="${data.title}" style="max-width:100%; border-radius: 10px;" />
+        <p>${data.explanation}</p>
+      `;
+    })
+    .catch(error => {
+      console.error('Error al obtener la imagen de la NASA:', error);
+      document.body.innerHTML += `<p>Error al cargar la imagen de la NASA 🚀</p>`;
+    });
 });
 
 
