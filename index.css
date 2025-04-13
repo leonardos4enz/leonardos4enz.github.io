@@ -102,6 +102,7 @@ section .section-title {
     margin: 40px 0px;
     color: #4285F4;
     padding: 50px 0; /* Añadido padding superior e inferior de 40px */
+    font-style: normal;
 }
 
 section #projects {

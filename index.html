@@ -48,8 +48,8 @@
 </head>
 <body class="">
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
-        <div class="container-fluid">
-          <button class="navbar-toggler ms-auto border-0 btn btn-sm rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="box-shadow: unset;">
+        <div class="container-fluid d-flex justify-content-end  ">
+          <button class="navbar-toggler text-center justify-content-center border-0 btn btn-sm rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="box-shadow: unset;">
             <i class="fas fa-bars"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -59,9 +59,6 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark mx-3" aria-current="page" href="#tecnologias">Tecnologías</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link text-dark mx-3" aria-current="page" href="#timeline">Trayectoria</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link text-dark mx-3" aria-current="page" href="#projects">Proyectos</a>
@@ -105,24 +102,14 @@
             </section>
 
             <section id="tecnologias" class="mt-5">
-                <h2 class="section-title text-center">Tecnologías</h2>
-                <div class="d-flex row align-items-center">
-                    <div class="col-12 col-sm-12 col-md-9 col-lg-9">
-                        <div class="d-flex flex-column justify-content-between">
-                            <div id="tecnologias-container"></div>
+                <div class="d-flex row align-items-start"> <!-- Cambiado a align-items-start para alinear los títulos a la misma altura -->
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 m-0 p-0">
+                        <h2 class="section-title text-center">Tecnologías</h2>
+                        <div class="d-flex flex-column align-items-center justify-content-center">
+                            <div id="tecnologias-container" class=" h-100"></div>
                         </div>
                     </div>
-                    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
-                        <div id="container-canvas" class="d-flex justify-content-center align-items-center" >
-                            <canvas id="canvas" style="height: 200px;" title="miaúsculus"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="timeline" class="mb-5">
-                <div class="d-flex row justify-content-center">
-                    <div class="col-12">
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 m-0 p-0">
                         <h2 class="section-title text-center">Trayectoria</h2>
                         <div id="timeline-container" class="d-flex flex-wrap justify-content-start">
                             <!-- Las tarjetas se generarán aquí -->

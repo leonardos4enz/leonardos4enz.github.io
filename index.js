@@ -1,5 +1,7 @@
 $(document).ready(function () {
     gsapAnimationsInit();
+    let fechaInicioLaboral = "2023-04-03";
+    $("#experience-years").text(calcularExperiencia(fechaInicioLaboral));
 
     //animacionTexto();
     initTecnologias();
@@ -7,8 +9,6 @@ $(document).ready(function () {
 
     initTimeline();
     initCanvas();
-    let fechaInicioLaboral = "2023-04-03";
-    $("#experience-years").text(calcularExperiencia(fechaInicioLaboral));
 
     gsapAnimations();
 });
@@ -184,7 +184,7 @@ const initTimeline = () => {
         ).join(" ");
 
         return `
-        <div class="col-12 col-sm-6 col-md-6 col-lg-3 timeline-item mb-3">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-6 timeline-item mb-3">
             <div class="card m-2 h-100 border-0 p-2 ">
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
@@ -249,23 +249,23 @@ const timelineEvents = [
 ];
 
 const deviconMap = {
-    "HTML": "devicon-html5-plain",
-    "CSS": "devicon-css3-plain",
-    "JavaScript": "devicon-javascript-plain",
-    "C#": "devicon-csharp-plain",
-    "Java": "devicon-java-plain",
-    "Python": "devicon-python-plain",
-    "SQL": "devicon-microsoftsqlserver-plain",
-    "Git": "devicon-git-plain",
-    "Bootstrap 3 y 5": "devicon-bootstrap-plain",
-    "jQuery": "devicon-jquery-plain",
-    ".NET": "devicon-dotnetcore-plain",
-    "MYSQL": "devicon-mysql-plain",
-    "TFS": "devicon-tfs-plain",
-    "Azure DevOps": "devicon-azuredevops-plain",
-    "JWT": "devicon-jwt-plain",
-    "Open AI GPTs": "devicon-openai-plain",
-    "Sonar Qube": "devicon-sonarqube-plain"
+    "HTML": "devicon-html5-plain colored",
+    "CSS": "devicon-css3-plain colored",
+    "JavaScript": "devicon-javascript-plain colored",
+    "C#": "devicon-csharp-plain colored",
+    "Java": "devicon-java-plain colored",
+    "Python": "devicon-python-plain colored",
+    "SQL": "devicon-microsoftsqlserver-plain colored",
+    "Git": "devicon-git-plain colored",
+    "Bootstrap 3 y 5": "devicon-bootstrap-plain colored",
+    "jQuery": "devicon-jquery-plain colored",
+    ".NET": "devicon-dotnetcore-plain colored",
+    "MYSQL": "devicon-mysql-plain colored",
+    "TFS": "devicon-tfs-plain colored",
+    "Azure DevOps": "devicon-azuredevops-plain colored",
+    "JWT": "devicon-jwt-plain colored",
+    "Open AI GPTs": "devicon-openai-plain colored",
+    "Sonar Qube": "devicon-sonarqube-plain colored"
 };
 
 const initTecnologias = () => {
@@ -276,7 +276,7 @@ const initTecnologias = () => {
     let techHTML = uniqueTechnologies.map(tech => {
         let iconClass = deviconMap[tech] || ""; // Si no hay ícono, queda vacío
         return `
-            <span class="badge tech-item bg-light text-dark shadow-sm p-2 m-3 mb-4">
+            <span class="badge tech-item bg-light text-dark shadow-sm p-2 m-3 mb-4 fs-6">
                 ${iconClass ? `<i class="${iconClass}"></i> ` : ""}${tech}
             </span>
         `;
