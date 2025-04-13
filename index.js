@@ -222,14 +222,14 @@ const timelineEvents = [
         title: "Universidad",
         date: "2018-2022",
         description: "Desarrollo web y aplicaciones básico.",
-        technologies: ["HTML", "JavaScript", "CSS", "C#", "Java", "Python", "SQL", "Git"],
+        technologies: ["Git", "HTML", "JavaScript", "CSS", "C#", "Java", "Python", "SQL"],
         icon: "fas fa-graduation-cap" // Icono de graduación
     },
     {
         title: "XCF",
         date: "2023",
         description: "Comencé practicas en desarrollo web.",
-        technologies: ["Bootstrap 3 y 5","jQuery" , ".NET", "MYSQL", "TFS"],
+        technologies: ["MYSQL","Bootstrap 3 y 5","jQuery" , ".NET",  "TFS"],
         icon: "fas fa-truck-fast"
     },
     {
@@ -255,7 +255,7 @@ const deviconMap = {
     "C#": "devicon-csharp-plain",
     "Java": "devicon-java-plain",
     "Python": "devicon-python-plain",
-    "SQL": "devicon-mysql-plain",
+    "SQL": "devicon-microsoftsqlserver-plain",
     "Git": "devicon-git-plain",
     "Bootstrap 3 y 5": "devicon-bootstrap-plain",
     "jQuery": "devicon-jquery-plain",
