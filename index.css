@@ -1,14 +1,17 @@
-.contenedor-principal {
+body{
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
-    background-color: #f3f3f3; /* Fondo claro */
+}
+
+.contenedor-principal {
+    background-color: #f1f1f1; /* Fondo claro */
     color: #333; /* Texto oscuro */
     backdrop-filter: blur(20px);
     position: relative;
     overflow-y: hidden;
     min-height: 100vh;
     padding-bottom: 100px;
-    padding-top: 100px;
+    padding-top: 140px;
 }
 
 /* Fondo con líneas tipo blueprint */
@@ -96,9 +99,9 @@ section .section-title {
     font-size: 50px;
     font-weight: 700;
     display: block;
-    margin-bottom: 40px;
+    margin: 40px 0px;
     color: #4285F4;
-    padding: 70px 0; /* Añadido padding superior e inferior de 40px */
+    padding: 50px 0; /* Añadido padding superior e inferior de 40px */
 }
 
 section #projects {
@@ -115,70 +118,12 @@ section #projects {
     gap: 16px; /* Espaciado horizontal */
 }
     
-.project-name {
+.card-custom-title {
     font-weight: 700;
     letter-spacing: 0;
     margin-bottom: 0px;
 }
 
-
-
-#timeline-container {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-}
-
-.timeline-item {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    padding: 20px 0;
-    display: none; /* Animación de entrada */
-}
-
-.timeline-dot {
-    width: 14px;
-    height: 14px;
-    background-color: #007bff;
-    border-radius: 50%;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    z-index: 2;
-}
-
-.timeline-line {
-    position: absolute;
-    left: 16px;
-    top: 24px;
-    width: 2px;
-    height: 100%;
-    background-color: #007bff;
-    z-index: 1;
-}
-
-.timeline-title {
-    font-weight: 700;
-    font-size: 24px;
-}
-
-.timeline-line.last {
-    display: none; /* Oculta la línea en el último elemento */
-}
-
-.timeline-content {
-    background: #ffffff;
-    border-radius: 15px;
-    margin-left: 40px;
-    padding: 20px 20px;
-    transition: transform 0.3s;
-}
-
-    .timeline-content:hover {
-        transform: scale(1.01);
-    }
 
 .floating-buttons {
     position: fixed;
@@ -325,28 +270,70 @@ section #projects {
 }
 
 .card-img-top {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
     filter: grayscale(100%); /* Escala de grises por defecto */
-    transition: filter 0.3s; /* Transición suave */
-    height: 175px;
-    object-fit: cover; /* Mantener la proporción */
-    object-position: top; /* Posicionar la imagen desde arriba */
+    transition: transform 0.3s, filter 0.3s; /* Transición suave */
+    height: 175px; /* Altura máxima de 175px */
+    object-fit: cover; /* Mantiene la proporción, recortando si es necesario */
+    object-position: top; /* Posiciona la imagen en la parte superior */
+    overflow: hidden; /* Asegúrate de que no se desborde */
 }
 
 .card {
     transition: filter 0.3s, transform 0.3s; /* Transición suave para el card */
     border-radius: 30px;
-}
-
-.card:hover {
-    transform: scale(1.01); /* Aumenta el tamaño de la card al hacer hover */
+    overflow: hidden; /* Evita que la imagen se desborde del contenedor */
 }
 
 .card:hover .card-img-top {
-    filter: grayscale(0%); /* Color normal al hacer hover sobre el card */
+    transform: scale(1.02); /* Aumenta el tamaño de la imagen dentro de su contenedor */
+    filter: grayscale(0%);
 }
 
 .border-dashed {
     border-radius: 100px;
+}
+
+.navbar {
+    margin: 10px auto; /* Centrar la navbar */
+    padding: 15px; /* Ajustar el padding para que sea igual al ancho de .container */
+
+    border-radius: 20px; /* Solo se aplicará en pantallas grandes */
+
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: calc(100% - 40px); /* Ancho total menos el margen */
+    max-width: 1500px; /* Ancho máximo de .container de Bootstrap */
+}
+
+
+.nav-link{
+    color: #4285F4;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin: 0px 30px;
+}
+
+.bg-primary{
+    background-color: #4285F4 !important;
+}
+
+.bg-secondary-custom-badge{
+    background-color: #e7e7e7 !important;
+    font-weight: 500;
+}
+
+.text-primary{
+    color: #4285F4 !important;
+}
+
+
+#timeline-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se muevan a la siguiente línea */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
 }

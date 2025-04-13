@@ -1,15 +1,26 @@
 $(document).ready(function () {
-    gsap.registerPlugin(ScrollTrigger);
+    gsapAnimationsInit();
 
-    animacionTexto();
-    initTimeline();
+    //animacionTexto();
     initTecnologias();
     initProjects();
-    gsapAnimations();
 
+    initTimeline();
+    initCanvas();
     let fechaInicioLaboral = "2023-04-03";
     $("#experience-years").text(calcularExperiencia(fechaInicioLaboral));
 
+    gsapAnimations();
+});
+
+//region GSAP Animations
+const gsapAnimationsInit = () => {
+    gsap.registerPlugin(ScrollTrigger);
+}
+//endregion
+
+//region Canvas
+const initCanvas = () => {
     const riveFile = '/assets/rive/cat_2.riv';
 
     const r = new rive.Rive({
@@ -26,20 +37,8 @@ $(document).ready(function () {
     window.addEventListener("resize", () => {
         r.resizeDrawingSurfaceToCanvas();
     });
-
-    // Llamada async a la API de NASA
-    (async () => {
-        try {
-            const res = await fetch('/api/nasa');
-            const data = await res.json();
-            console.log('📡 Datos de la NASA APOD (async):', data);
-        } catch (error) {
-            console.error('❌ Error async al obtener datos de la NASA:', error);
-        }
-    })();
-});
-
-
+}
+//#endregion
 
 //#region Projects
 
@@ -60,7 +59,7 @@ const initProjects = () => {
                     ${imageHTML} 
                     <div class="card-body p-4 d-flex flex-column">
                         <div class="card-body-content pb-3 flex-grow-1">
-                            <h4 class="pt-2 project-name">${project.title}</h4>
+                            <h4 class="pt-2 project-name card-custom-title">${project.title}</h4>
                             <p class="text-muted"><small class="me-2">${project.year}</small></p>
                             <p>${project.description}</p>
                             <p>${techIcons}</p>
@@ -92,7 +91,7 @@ const initProjects = () => {
             ease: "power3.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 85%", // La animación inicia cuando el 80% del elemento entra en la vista
+                start: "top 95%", // La animación inicia cuando el 80% del elemento entra en la vista
                 toggleActions: "play none none none" // La animación solo se ejecuta una vez
             }
         });
@@ -181,87 +180,71 @@ const projects = [
 const initTimeline = () => {
     let timelineHTML = timelineEvents.map((event, index) => {
         let techBadges = event.technologies.map(tech => 
-            `<span class="badge bg-secondary">${tech}</span>`
+            `<span class="badge bg-secondary-custom-badge shadow-sm text-dark">${tech}</span>`
         ).join(" ");
 
         return `
-            <div class="timeline-item">
-                <div class="timeline-dot"></div>
-                <div class="timeline-line ${index === timelineEvents.length - 1 ? 'last' : ''}"></div>
-                <div class="timeline-content">
-                    <div class="timeline-title">
-                        ${event.title} 
-                        <small class="text-muted fw-light fs-6">${event.date}</small>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-3 timeline-item mb-3">
+            <div class="card m-2 h-100 border-0 p-2 ">
+                <div class="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="card-title card-custom-title" style="font-weight: 700;">${event.date} </h4>
+                        <small class="text-muted fw-light">${event.title}</small>
+                        <p class="card-text mt-3">${event.description}</p>
                     </div>
-                    <p class="p-0 mt-2 mb-3">${event.description}</p>
-                    <div class="tech-tags d-flex flex-wrap gap-2 my-2">${techBadges}</div>
+                    <div class="tech-tags d-flex flex-wrap gap-2 my-2 justify-content-center">${techBadges}</div>
                 </div>
-            </div>`;
+            </div>
+        </div>
+        `;
     }).join("");
 
     $("#timeline-container").html(timelineHTML);
 
-    // Animación de entrada
-    $(".timeline-item").each(function(i) {
-        $(this).delay(i * 150).fadeIn(500);
-    });
-
+    // Animaciones GSAP con ScrollTrigger
     gsap.utils.toArray(".timeline-item").forEach((item, index) => {
         gsap.from(item, {
             opacity: 0,
-            x: -50,
+            y: 50,
             duration: 1,
             ease: "power3.out",
             scrollTrigger: {
                 trigger: item,
-                start: "top 80%", // La animación inicia cuando el 80% del elemento entra en la vista
+                start: "top 95%", // La animación inicia cuando el 95% del elemento entra en la vista
                 toggleActions: "play none none none" // La animación solo se ejecuta una vez
             }
         });
     });
-
-    // Efecto de rebote en los puntos de la línea de tiempo
-    gsap.utils.toArray(".timeline-dot").forEach((dot) => {
-        gsap.from(dot, {
-            scale: 0,
-            duration: 0.5,
-            ease: "elastic.out(1, 0.5)",
-            scrollTrigger: {
-                trigger: dot,
-                start: "top 85%",
-                toggleActions: "play none none none"
-            }
-        });
-    });
 };
-
-
-
 
 const timelineEvents = [
     {
         title: "Universidad",
         date: "2018-2022",
         description: "Desarrollo web y aplicaciones básico.",
-        technologies: ["HTML", "JavaScript", "CSS", "C#", "Java", "Python", "SQL", "Git"]
+        technologies: ["HTML", "JavaScript", "CSS", "C#", "Java", "Python", "SQL", "Git"],
+        icon: "fas fa-graduation-cap" // Icono de graduación
     },
     {
         title: "XCF",
         date: "2023",
         description: "Comencé practicas en desarrollo web.",
-        technologies: ["Bootstrap 3 y 5","jQuery" , ".NET", "MYSQL", "TFS"]
+        technologies: ["Bootstrap 3 y 5","jQuery" , ".NET", "MYSQL", "TFS"],
+        icon: "fas fa-truck-fast"
     },
     {
         title: "XCF",
         date: "2024",
-        description: "Trabajé como líder de proyecto en la creación de el ERP de la empresa.",
-        technologies: ["Metodología SCRUM", "Azure DevOps", "IIS Internet Information Services", "Draw.io"]
+        description: "Lider de proyecto en creación de ERP.",
+        technologies: ["Metodología SCRUM", "Azure DevOps", "IIS Internet Information Services"],
+        icon: "fas fa-truck-fast"
     },
     {
         title: "XCF",
         date: "2025",
-        description: "Trabajo actualmente como líder de equipo de desarrollo para la migración del sistema actual al ERP.",
-        technologies: ["JWT", "SSMA Migration Assistant", "Open AI GPTs", "Sonar Qube"]
+        description: "Lider de proyecto en migración de sistema.",
+        technologies: ["JWT", "SSMA Migration Assistant", "Open AI GPTs", "Sonar Qube"],
+        icon: "fas fa-truck-fast"
     }
 ];
 
@@ -293,7 +276,7 @@ const initTecnologias = () => {
     let techHTML = uniqueTechnologies.map(tech => {
         let iconClass = deviconMap[tech] || ""; // Si no hay ícono, queda vacío
         return `
-            <span class="badge tech-item bg-secondary text-white p-2 m-3 mb-4">
+            <span class="badge tech-item bg-light text-dark shadow-sm p-2 m-3 mb-4">
                 ${iconClass ? `<i class="${iconClass}"></i> ` : ""}${tech}
             </span>
         `;
@@ -311,7 +294,7 @@ const initTecnologias = () => {
             delay: index * 0.1, // Pequeña diferencia de tiempo entre cada tecnología
             scrollTrigger: {
                 trigger: item,
-                start: "top 90%", // Se activa cuando el 85% del elemento entra en la vista
+                start: "top 100%", // Se activa cuando el 85% del elemento entra en la vista
                 toggleActions: "play none none none"
             }
         });

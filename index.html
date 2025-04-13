@@ -10,7 +10,7 @@
     <link rel="manifest" href="assets/favicons/site.webmanifest">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/lib/bootstrap-5.0.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/lib/fontawesome-free-6.7.1-web/fontawesome-free-6.7.1-web/css/all.min.css">
     <link rel="stylesheet" href="/lib/aos-master/aos-master/dist/aos.css">
     <link rel="stylesheet" href="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.css">
@@ -47,7 +47,29 @@
 
 </head>
 <body class="">
-    
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container-fluid">
+          <button class="navbar-toggler ms-auto border-0 btn btn-sm rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="box-shadow: unset;">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link text-dark mx-3" aria-current="page" href="#">Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark mx-3" aria-current="page" href="#tecnologias">Tecnologías</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark mx-3" aria-current="page" href="#timeline">Trayectoria</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-dark mx-3" aria-current="page" href="#projects">Proyectos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     <div class="contenedor-principal">
 
         <div class="container">
@@ -56,13 +78,13 @@
             <section id="about" class="text-center">
                 <div class="row">
                     <!-- Foto -->
-                    <div class="col-md-4 d-flex justify-content-center align-items-center">
+                    <div class="col-sm-12 col-md-12 col-lg-4 d-flex justify-content-center align-items-center">
                         <div class="blueprint-border">
                             <img src="/assets/img/me.jpg" alt="Foto de Leonardo Sáenz" class="rounded-circle">
                         </div>
                     </div>
                     <!-- Info -->
-                    <div class="col-md-8 d-flex justify-content-center align-items-center mt-3 mt-md-0">
+                    <div class="col-sm-12 col-md-12 col-lg-8 d-flex justify-content-center align-items-center mt-3 mt-md-0">
                         <div>
                             <h1 class="portfolio-nombre ml2">Leonardo Sáenz</h1>
                             <p class="fst-italic" id="experience-text">
@@ -76,62 +98,44 @@
                 </div>
             </section>
 
-            <section id="about-me" class="text-center my-5 fst-italic" style="font-weight: 300;">
+            <section id="sj" class="text-center my-5 fst-italic" style="font-weight: 300;">
                 <p>"El único modo de hacer un gran trabajo es amar lo que haces"<br>
                     <span class="">- Steve Jobs</span>
                 </p>
             </section>
 
-            <section id="timeline text-center" class="">
-                <div class="d-flex row">
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                        <h2 class="section-title text-center">Línea de aprendizaje</h2>
-                        <div id="section-timeline-container d-flex">
-                            <div class="timeline" id="timeline-container"></div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-sm-12 col-md-12 col-lg-6">
-                        <h2 class="section-title text-center">Conocimiento de tecnologías</h2>
+            <section id="tecnologias" class="mt-5">
+                <h2 class="section-title text-center">Tecnologías</h2>
+                <div class="d-flex row align-items-center">
+                    <div class="col-12 col-sm-12 col-md-9 col-lg-9">
                         <div class="d-flex flex-column justify-content-between">
                             <div id="tecnologias-container"></div>
-                            <div id="container-canvas" class="d-flex justify-content-center align-items-center mt-2 mt-md-5" >
-                                <canvas id="canvas" style="height: 200px;" title="miaúsculus"></canvas>
-                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-12 col-md-3 col-lg-3">
+                        <div id="container-canvas" class="d-flex justify-content-center align-items-center" >
+                            <canvas id="canvas" style="height: 200px;" title="miaúsculus"></canvas>
                         </div>
                     </div>
                 </div>
             </section>
-            
+
+            <section id="timeline" class="mb-5">
+                <div class="d-flex row justify-content-center">
+                    <div class="col-12">
+                        <h2 class="section-title text-center">Trayectoria</h2>
+                        <div id="timeline-container" class="d-flex flex-wrap justify-content-start">
+                            <!-- Las tarjetas se generarán aquí -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <section id="projects" class="">
                 <h2 class="section-title">Proyectos</h2>
                 <div class="col-12 d-flex flex-wrap justify-content-center align-content-center" id="projects-container"></div>
             </section>
-        </div>
-    </div>
-
-    <div class="position-fixed bottom-0 end-0 p-3">
-        <div class="d-flex flex-column gap-1">
-            
-            <!-- LinkedIn -->
-            <a href="https://www.linkedin.com/in/leonardos4enz/" target="_blank" class="btn btn-primary" title="LinkedIn">
-                <i class="fab fa-linkedin-in fa-xl"></i>
-            </a>
-
-            <!-- Copiar Email -->
-            <button class="btn btn-danger" title="Copiar Email" onclick="copyEmail()">
-                <i class="fas fa-envelope fa-xl"></i>
-            </button>
-
-            <!-- WhatsApp -->
-            <a href="https://wa.me/528110375798" target="_blank" class="btn btn-success" title="WhatsApp">
-                <i class="fab fa-whatsapp fa-xl"></i>
-            </a>
-
-            <!-- GitHub -->
-            <a href="https://www.github.com/leonardos4enz/" target="_blank" class="btn btn-dark" title="GitHub">
-                <i class="fab fa-github fa-xl"></i>
-            </a>
-
         </div>
     </div>
 
@@ -140,10 +144,10 @@
         <div class="modal-dialog modal-fullscreen modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="projectModalLabel">Detalles del Proyecto</h5>
-                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times fa-lg"></i></button>
+                    <h5 class="modal-title text-light" id="projectModalLabel">Detalles del Proyecto</h5>
+                    <button type="button" class="ms-auto btn btn-outline-light" data-bs-dismiss="modal" aria-label="Close"><i class="fas fa-times fa-lg"></i></button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body text-light">
                     <div class="container"></div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center align-items-center">
@@ -169,7 +173,7 @@
 
     <div class="cursor-dot" id="cursor-dot"></div>
 
-    <script src="/lib/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/lib/bootstrap-5.3.5-dist/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
     <script src="/lib/jQuery/jquery.js"></script>
     <script src="/lib/CodeSeven-toastr-2.1.4-7-g50092cc/CodeSeven-toastr-50092cc/build/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
