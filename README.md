@@ -1,7 +1,5 @@
 # 🌐 Portafolio personal – Leonardo Sáenz
 
-![Vista previa](Captura%20de%20pantalla%202025-07-12%20143023.png)
-
 [Demo en vivo → leonardos4enz.github.io](https://leonardos4enz.github.io/)
 
 ![Captura](Captura%20de%20pantalla%202025-07-12%20143023.png)
